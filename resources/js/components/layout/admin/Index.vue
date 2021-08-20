@@ -1,6 +1,6 @@
 <template>
         <div class="container-fluid vh-100" id="app">
-        <message-item :isActive="isActive"></message-item>
+        <message-item :isActive="isActive" :notify="notify" :result="result"></message-item>
 
         <div class="row d-flex h-100">
             <div id="nav-left" class="">
@@ -27,7 +27,9 @@ export default {
     },
     props: {
         user: Object,
-        isActive: Boolean
+        isActive: Boolean,
+        notify: String,
+        result: Boolean
     },
     components: {
         Nav,

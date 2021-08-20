@@ -15,7 +15,20 @@ export default {
                 return { status: 422, errors: error.response.data.errors };
             })
     },
+    find(id){
+        let token = window.localStorage.getItem('token');
 
+        let config = { headers: { "Authorization": `Bearer ${token}` } };
+        if(token == null) mainThis.$router.push({name: 'Login'});
+        
+        return Repository.get(`${resource}/${id}`, config)
+            .then(response => {
+                  return  response.data.user
+            })
+            .catch(error => {
+                mainThis.$router.push({name: 'Login'});
+            })
+    },
     checkLogin(mainThis){
         let token = window.localStorage.getItem('token');
 
@@ -66,14 +79,50 @@ export default {
             })
     },
 
-    form(user, type, appThis){
+    store(user, type, appThis){
         let token = window.localStorage.getItem('token');
 
         let config = { headers: { "Authorization": `Bearer ${token}` } };
         return Repository.post(`${resource}`, user, config)
             .then(response => {
                 if(type == 'save')
-                    return {status: response.status, user: response.data.user}
+                    appThis.$router.push({name: 'UserEdit', params: {id: response.data.user.id, isActive: true, type: 'add'}});
+                else if(type == 'save-add')
+                    return {status: 200};
+                else
+                    appThis.$router.push({name: 'UserIndex', params: {isActive: true}});
+
+            })
+            .catch(error => {
+                return { status: 422, errors: error.response.data.errors };
+            })
+    },
+    update(user, type, appThis){
+        let token = window.localStorage.getItem('token');
+
+        let config = { headers: { "Authorization": `Bearer ${token}` } };
+        return Repository.post(`${resource}/${user.id}`, user, config)
+            .then(response => {
+                if(type == 'save')
+                    return {status: 200};
+                else if(type == 'save-add')
+                    appThis.$router.push({name: 'UserStore', params: {isActive: true}});
+                else
+                    appThis.$router.push({name: 'UserIndex', params: {isActive: true, type: 'edit'}});
+
+            })
+            .catch(error => {
+                return { status: 422, errors: error.response.data.errors };
+            })
+    },
+
+    deleteItem(id){
+        let token = window.localStorage.getItem('token');
+
+        let config = { headers: { "Authorization": `Bearer ${token}` } };
+        return Repository.delete(`${resource}/${id}`, config)
+            .then(response => {
+                 return response.data;
 
             })
             .catch(error => {

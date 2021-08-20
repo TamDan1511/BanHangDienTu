@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Models\User;
 
 class UserRequest extends FormRequest
 {
@@ -38,7 +39,8 @@ class UserRequest extends FormRequest
                 $fail('Mật khẩu xác thực chưa chính xác!');
             }
         };
-        return [
+
+        $rules =[
             'name'  => ['bail', 'required', 'min:3'],
             'email' => ['bail', 'required', 'email:rfc,dns', 'unique:users'],
             'password'  => ['bail', 'required', 'min:8', $checkUnicode],
@@ -49,6 +51,27 @@ class UserRequest extends FormRequest
             'phone'  => ['nullable'],
             'confirmpassword' => ['bail', 'required', $comparePass]
         ];
+
+        if($this->has('_method'))
+        {
+            $user = User::find($this->input('id'));
+             
+            $rules['password'] =  ['bail', 'nullable', 'min:8', $checkUnicode];
+            $rules['confirmpassword'] =  ['bail', 'nullable', $comparePass];
+            $rules['email'] = ['bail', 'required', 'email:rfc,dns', Rule::unique('users')->ignore($user)];
+
+        }
+     
+         return $rules; 
+    }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            if ($validator->errors()->has('confirmpassword')) {
+                $validator->errors()->add('password', 'Nhập lại mật khẩu!');
+            }
+        });
     }
 
     public function messages()

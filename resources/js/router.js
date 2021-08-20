@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Login from './components/layout/admin/user/Login.vue';
-import UserForm from './components/layout/admin/user/Form.vue';
+import UserStore from './components/layout/admin/user/Store.vue';
+import UserUpdate from './components/layout/admin/user/Update.vue';
 import UserIndex from './components/layout/admin/user/Index.vue';
 import IndexAdmin from './components/layout/admin/index/Index.vue';
 import PasswordForget from './components/layout/admin/user/PasswordForget.vue';
@@ -17,7 +18,7 @@ const routes = [
 	},
 
 	{
-		path: '/admin/password-forget',
+		path: '/admin/quen-mat-khau',
 		name: 'PasswordForget',
 		component: PasswordForget
 	},
@@ -29,11 +30,15 @@ const routes = [
 	},
 
 	{
-		path: '/admin/user/form',
-		name: 'UserForm',
-		component: UserForm
+		path: '/admin/user/them-nguoi-dung',
+		name: 'UserStore',
+		component: UserStore
 	},
-
+	{
+		path: '/admin/user/:id/edit',
+		name: 'UserEdit',
+		component: UserUpdate
+	},
 	{
 		path: '/admin/user',
 		name: 'UserIndex',

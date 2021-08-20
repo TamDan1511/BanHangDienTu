@@ -51,7 +51,7 @@ class UserController extends Controller
     {
         $validated = $request->validated();
       //  dd($validated); 
-        $this->userService->store($validated, $request->query('type'));
+       return $this->userService->store($validated);
     }
 
     /**
@@ -62,7 +62,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return 'abc';
+        return $this->userService->find($id);
     }
 
     /**
@@ -83,9 +83,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        $validated = $request->validated();
+        return $this->userService->update($validated, $id);
     }
 
     /**
@@ -96,7 +97,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \App\Models\User::find($id)->AauthAcessToken()->delete();
+        return \App\Models\User::destroy($id);
     }
 
     public function login(Request $request)

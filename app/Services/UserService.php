@@ -18,14 +18,16 @@ class UserService{
 		return $this->userRepository->index();
 	}
 
-	public function store($validated, $type)
+	public function store($validated)
 	{
 		$validated['password'] = Hash::make($validated['password']);
 		if(isset($validated['picture'])){
 			$picture = $validated['picture'];
 			$ext = $picture->extension();
-			$validated['password'] = Str::random(40). '.' . $ext;
+			$validated['picture'] = Str::random(40). '.' . $ext;
 		}
+
+		unset($validated['confirmpassword']);
 		 
  		$user = $this->userRepository->store($validated); 	 
 		return response()->json([
@@ -33,9 +35,17 @@ class UserService{
 		]);	 
 	}
 
-	public function update($validated)
+	public function update($validated, $id)
 	{
-		
+		return $this->userRepository->update($validated, $id);
+	}
+
+	public function find($id)
+	{
+		$user = $this->userRepository->find($id);
+		return response()->json([
+			'user' => $user
+		]);	
 	}
 
 	public function changeActive($request)

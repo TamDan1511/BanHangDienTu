@@ -29,6 +29,11 @@ class UserRepository{
 		$value = $value == 1 ? 0 : 1; 
 		return User::where('id', $id)->update([$type => $value]);
 	}
+
+	public function update($validated, $id)
+	{
+		return User::where('id', $id)->update($validated);
+	}
 }
 
 
