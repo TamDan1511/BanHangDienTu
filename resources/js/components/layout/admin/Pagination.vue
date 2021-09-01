@@ -61,7 +61,6 @@ export default {
                 this.startPage = 1;
             }
 
-            console.log(this.pagi)
         }
     },
     created(){

@@ -19,10 +19,10 @@
             </a>
         </li>
         <li class="nav-item text-center">
-            <a class="nav-link" href="#">
+            <router-link class="nav-link" :to="{name: 'CategoryItem'}">
                 <img src="https://img.icons8.com/plasticine/40/000000/category.png" />
                 <span class="nav-color font-weight-bold">Category</span>
-            </a>
+            </router-link>
         </li>
         <li class="nav-item text-center">
             <a class="nav-link" href="#">

@@ -6,6 +6,11 @@ import UserUpdate from './components/layout/admin/user/Update.vue';
 import UserIndex from './components/layout/admin/user/Index.vue';
 import IndexAdmin from './components/layout/admin/index/Index.vue';
 import PasswordForget from './components/layout/admin/user/PasswordForget.vue';
+
+
+import CategoryItem from './components/layout/admin/category/Index.vue';
+import CategoryStore from './components/layout/admin/category/Store.vue';
+import CategoryEdit from './components/layout/admin/category/Update.vue';
 import VueMeta from 'vue-meta'
 Vue.use(VueRouter);
 Vue.use(VueMeta);
@@ -43,6 +48,21 @@ const routes = [
 		path: '/admin/user',
 		name: 'UserIndex',
 		component: UserIndex
+	},
+	{
+		path: '/admin/category',
+		name: 'CategoryItem',
+		component: CategoryItem
+	},
+	{
+		path: '/admin/category/them-danh-muc',
+		name: 'CategoryStore',
+		component: CategoryStore
+	},
+	{
+		path: '/admin/category/sua-danh-muc',
+		name: 'CategoryEdit',
+		component: CategoryEdit
 	}
 ];
 

@@ -3,6 +3,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\Hash;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class UserService{
 
@@ -28,7 +29,8 @@ class UserService{
 		}
 
 		unset($validated['confirmpassword']);
-		 
+		$validated['user_id'] = auth('api')->user()->id;
+
  		$user = $this->userRepository->store($validated); 	 
 		return response()->json([
 			'user' => $user
@@ -37,6 +39,9 @@ class UserService{
 
 	public function update($validated, $id)
 	{
+		$validated['password'] = Hash::make($validated['password']);
+		unset($validated['confirmpassword']);
+		$validated['updated_by'] = auth('api')->user()->id;
 		return $this->userRepository->update($validated, $id);
 	}
 

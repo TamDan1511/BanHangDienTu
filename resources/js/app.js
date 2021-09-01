@@ -10,13 +10,17 @@ require('./bootstrap');
 import Dialog from 'vue-dialog-loading'
 import App from './components/App.vue';
 import router from './router.js';
+import store from './store';
+
 Vue.prototype.$ = $;
 Vue.prototype._ = _;
 Vue.use(Dialog);
 import gsap from "gsap";
- Vue.prototype.gsap = gsap;
+Vue.prototype.gsap = gsap;
+
 const app = new Vue({
     el: '#app',
     router,
+    store,
     render: h => h(App)
 });

@@ -10,7 +10,7 @@
                         <li class="nav-item ml-auto position-relative">
                             <a class="nav-link text-dark" data-toggle="collapse" href="#dropdownProfile">
                                 <img src="/images/img-avatar.png" class="rounded-circle" :style="{width: 40 + 'px', height: 40 + 'px'}" />
-                                <span class="pl-1">{{ user.name}}</span>
+                                <span class="pl-1">{{ getUserLogin != null ? getUserLogin.user.name: ''}}</span>
                             </a>
                             <div class="collapse position-absolute" id="dropdownProfile">
                                 <ul class="nav flex-column rounded d-inline-block" :style="{backgroundColor: '#b3e5fc', width: 150 + 'px'}">
@@ -32,18 +32,27 @@
 
 <script >
 	import RepositoryFactory from '../../../repositoryfactory/RepositoryFactory.js';
-const UserRepository = RepositoryFactory.get('user');
+    const UserRepository = RepositoryFactory.get('user');
+    import {mapActions, mapGetters} from 'vuex';
 	export default{
-		name: 'Header',
-		props: {
-			user: Object
-		},
+		name: 'Header', 
+        computed: {
+            ...mapGetters('checkLogin', ['getUserLogin'])
+        },
+        async mounted(){
+            const userLogin =  await UserRepository.checkLogin(this);
+            this.setUserLogin(userLogin);
+        },
 		methods: {
 			logout: function(){
 				let authorization = window.localStorage.getItem('token');
         		let config = { headers: { "Authorization": `Bearer ${authorization}` } };
 				UserRepository.logout(this,config);
-			}
+			},
+
+            ...mapActions('checkLogin', [
+                'setUserLogin'
+            ])
 		}
 	}
 </script>

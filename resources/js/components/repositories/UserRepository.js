@@ -57,7 +57,7 @@ export default {
         if(token == null) mainThis.$router.push({name: 'Login'});
         return Repository.get(`${resource}?page=${page}`, config)
             .then(response => {
-                  return {users: response.data.users}
+                  return {users: response.data.users, count: response.data.count, active: response.data.active}
             })
             .catch(error => {
                 mainThis.$router.push({name: 'Login'});
@@ -90,7 +90,7 @@ export default {
                 else if(type == 'save-add')
                     return {status: 200};
                 else
-                    appThis.$router.push({name: 'UserIndex', params: {isActive: true}});
+                    appThis.$router.push({name: 'UserIndex', params: {isActive: true, type: 'add'}});
 
             })
             .catch(error => {

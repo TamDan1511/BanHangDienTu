@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Admin\UserController;
-
+ 
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,9 +25,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:api'], function(){
      
     Route::post('/user/changeActive', [UserController::class, 'changeActive']);
     Route::get('/user/getUser', [UserController::class, 'getUser'])->name('getUser');
-    Route::get('/user/logout', [UserController::class, 'logout'])->name('logout');
-     
+    Route::get('/user/logout', [UserController::class, 'logout'])->name('logout');   
     Route::resource('/user', UserController::class); 
+
+    
+    Route::apiResource('/category', CategoryController::class);
+    Route::post('/category/changeActive', [CategoryController::class, 'changeActive']);
+    Route::post('/category/move', [CategoryController::class, 'move']);
+    Route::get('/getCategoryAll',[CategoryController::class, 'getCategoryAll']);
 });
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

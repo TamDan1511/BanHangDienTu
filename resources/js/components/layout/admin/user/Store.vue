@@ -1,5 +1,5 @@
 <template>
-    <index-item v-slot:MainRight :user="userLogin" :isActive="isActive" :notify="notify">
+    <index-item v-slot:MainRight>
         <div class="h-100 p-3 bg-form">
             <h5 class="d-inline-block font-weight-bold">{{  title }}</h5>
             <ul class="nav">
@@ -104,6 +104,7 @@
 import IndexItem from '../Index.vue';
 import RepositoryFactory from '../../../repositoryfactory/RepositoryFactory.js';
 const UserRepository = RepositoryFactory.get('user');
+import {mapActions} from 'vuex';
 export default {
     name: 'UserStore',
     metaInfo() {
@@ -113,10 +114,7 @@ export default {
     },
     data: function() {
         return {
-            title: 'Thêm người dùng',
-            isActive: false,
-            notify: 'Thêm thành công',
-            userLogin: {},
+            title: 'Thêm người dùng',     
             path: '/upload/user/',
             userModel: this.resetUser(),
             errors: {}
@@ -125,17 +123,13 @@ export default {
     components: {
         IndexItem
     },
-    async created() {
-        let data = await UserRepository.checkLogin(this);
-        this.userLogin = data.user;
-    
-    },
     async mounted(){  
        
         if(this.$route.params.isActive != null)
         {
-            this.isActive = true;
-            setTimeout(() => { this.isActive = false}, 3000);
+            this.setMessage('Sửa thành công');
+            this.setActive(true);
+            setTimeout(() => { this.setActive(false)}, 3000);
         } 
     },
     methods: {
@@ -155,8 +149,9 @@ export default {
 
                     }
                 }else{
-                    this.isActive = true;
-                    setTimeout(() => { this.isActive = false}, 3000);
+                    this.setMessage('Thêm thành công');
+                    this.setActive(true);
+                    setTimeout(() => { this.setActive(false)}, 3000);
                     this.userModel = this.resetUser();
                 } 
                  
@@ -174,7 +169,13 @@ export default {
         },
         back() {
             this.$router.go(-1)
-        }
+        },
+
+        ...mapActions('message', [
+				'setMessage',
+				'setActive',
+				'setFlag'
+		])
     } 
 }
 

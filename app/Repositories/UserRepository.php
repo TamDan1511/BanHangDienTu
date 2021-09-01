@@ -8,6 +8,8 @@ class UserRepository{
 		$userAll = User::paginate(6);
 		return response()->json(
 		[
+			'count' => User::count(),
+			'active'=> User::where('status', 1)->count(),
 			'users' => $userAll
 		]);
 	}

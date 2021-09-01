@@ -25,7 +25,7 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-
+        
         $checkUnicode = function ($attribute, $value, $fail) {
             if (mb_strlen($value) != strlen($value)) {
                 $fail('Mật khẩu không chứa các ký tự có dấu');
