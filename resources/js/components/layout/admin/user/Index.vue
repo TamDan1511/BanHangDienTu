@@ -122,13 +122,13 @@
                                 <td>
                                     {{ user.created_at }}
                                     <p class="font-weight-bold">
-                                        {{ user.user_id }}
+                                        {{ user.nameCreate}}
                                     </p>
                                 </td>
                                 <td>
                                     {{ user.updated_at }}
                                     <p class="font-weight-bold">
-                                        {{ user.updated_by }}
+                                        {{ user.nameUpdate }}
                                     </p>
                                 </td>
                                 <td>

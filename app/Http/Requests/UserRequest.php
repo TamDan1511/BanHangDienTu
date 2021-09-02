@@ -67,10 +67,16 @@ class UserRequest extends FormRequest
 
     public function withValidator($validator)
     {
-        $validator->after(function ($validator) {
+        $pass = $this->password;
+        $confirmpass = $this->confirmpassword;
+        $validator->after(function ($validator) use ($pass, $confirmpass){
             if ($validator->errors()->has('confirmpassword')) {
                 $validator->errors()->add('password', 'Nhập lại mật khẩu!');
             }
+            if($pass != null && $confirmpass == null){
+                $validator->errors()->add('confirmpassword', 'Xác thực mật khẩu không được để trống!');
+            }
+            
         });
     }
 

@@ -39,10 +39,18 @@ class UserService{
 
 	public function update($validated, $id)
 	{
-		$validated['password'] = Hash::make($validated['password']);
-		unset($validated['confirmpassword']);
+		
+	
+		if(isset($validated['password'])){
+			$validated['password'] = Hash::make($validated['password']);
+			unset($validated['confirmpassword']);
+		}else{
+			unset($validated['confirmpassword'], $validated['password']);
+		} 
+		 
 		$validated['updated_by'] = auth('api')->user()->id;
-		return $this->userRepository->update($validated, $id);
+		$affected = $this->userRepository->update($validated, $id);
+		return response()->json(['affected' => $affected]);
 	}
 
 	public function find($id)

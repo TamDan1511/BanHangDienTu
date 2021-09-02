@@ -104,7 +104,9 @@ export default {
         return Repository.post(`${resource}/${user.id}`, user, config)
             .then(response => {
                 if(type == 'save')
-                    return {status: 200};
+                 {
+                    return {status: 200, affected: response.data.affected};
+                 }    
                 else if(type == 'save-add')
                     appThis.$router.push({name: 'UserStore', params: {isActive: true}});
                 else

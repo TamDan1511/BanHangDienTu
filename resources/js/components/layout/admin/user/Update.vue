@@ -95,6 +95,7 @@
                             </div>
                             </div>
                         </div>
+                       
                     </form>
                 </div>
             </div>
@@ -118,7 +119,7 @@ export default {
         return {
             title: 'Sửa người dùng',
             path: '/upload/user/',
-            userModel: this.resetUser(),
+            userModel: {},
             errors: {}
         }
     },
@@ -146,6 +147,11 @@ export default {
            
             let userModel;
             this.$loading.show({ delay: 0, background: 'rgba(246, 246, 246, 0.5)' });
+            if (this.userModel.password == null)
+                this.userModel.password = '';
+             
+            if(this.userModel.confirmpassword == null)
+                 this.userModel.confirmpassword = '';
 
             userModel = await UserRepository.update(this.userModel, type, this);
             this.$loading.hide();
@@ -158,11 +164,14 @@ export default {
 
 	                }
             	}else{
-                    
-	                this.setMessage('Sửa thành công');
+                    if(userModel.affected > 0)
+	                    this.setMessage('Sửa thành công');
+                    else
+                        this.setMessage('Sửa thất bại');
                     this.setActive(true);  
 	                 
 	                setTimeout(() => { this.setActive(false)}, 3000);
+                    this.errors = {};
 	            } 
                  
             } 

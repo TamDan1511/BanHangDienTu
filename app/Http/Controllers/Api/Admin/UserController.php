@@ -85,7 +85,9 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
+
         $validated = $request->validated();
+        // return response()->json($validated);
         return $this->userService->update($validated, $id);
     }
 

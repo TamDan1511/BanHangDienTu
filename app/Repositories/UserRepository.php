@@ -5,7 +5,10 @@ class UserRepository{
 
 	public function index()
 	{
-		$userAll = User::paginate(6);
+		$userAll = User::leftJoin('users as users1', 'users.id', '=', 'users1.user_id')
+						->leftJoin('users as users2', 'users.id', '=', 'users2.updated_by')
+						->select('users.*', 'users1.name as nameCreate', 'users2.name as nameUpdate')
+						->paginate(6);
 		return response()->json(
 		[
 			'count' => User::count(),

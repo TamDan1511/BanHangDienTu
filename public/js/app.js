@@ -4167,6 +4167,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 var UserRepository = _repositoryfactory_RepositoryFactory_js__WEBPACK_IMPORTED_MODULE_2__.default.get('user');
@@ -4182,7 +4183,7 @@ var UserRepository = _repositoryfactory_RepositoryFactory_js__WEBPACK_IMPORTED_M
     return {
       title: 'Sửa người dùng',
       path: '/upload/user/',
-      userModel: this.resetUser(),
+      userModel: {},
       errors: {}
     };
   },
@@ -4245,10 +4246,12 @@ var UserRepository = _repositoryfactory_RepositoryFactory_js__WEBPACK_IMPORTED_M
                   delay: 0,
                   background: 'rgba(246, 246, 246, 0.5)'
                 });
-                _context2.next = 3;
+                if (this.userModel.password == null) this.userModel.password = '';
+                if (this.userModel.confirmpassword == null) this.userModel.confirmpassword = '';
+                _context2.next = 5;
                 return UserRepository.update(this.userModel, type, this);
 
-              case 3:
+              case 5:
                 userModel = _context2.sent;
                 this.$loading.hide();
 
@@ -4261,15 +4264,16 @@ var UserRepository = _repositoryfactory_RepositoryFactory_js__WEBPACK_IMPORTED_M
                       this.userModel[key] = '';
                     }
                   } else {
-                    this.setMessage('Sửa thành công');
+                    if (userModel.affected > 0) this.setMessage('Sửa thành công');else this.setMessage('Sửa thất bại');
                     this.setActive(true);
                     setTimeout(function () {
                       _this2.setActive(false);
                     }, 3000);
+                    this.errors = {};
                   }
                 }
 
-              case 6:
+              case 8:
               case "end":
                 return _context2.stop();
             }
@@ -4765,9 +4769,12 @@ var resource = '/api/admin/user';
       }
     };
     return _Repository_js__WEBPACK_IMPORTED_MODULE_0__.default.post("".concat(resource, "/").concat(user.id), user, config).then(function (response) {
-      if (type == 'save') return {
-        status: 200
-      };else if (type == 'save-add') appThis.$router.push({
+      if (type == 'save') {
+        return {
+          status: 200,
+          affected: response.data.affected
+        };
+      } else if (type == 'save-add') appThis.$router.push({
         name: 'UserStore',
         params: {
           isActive: true
@@ -50945,7 +50952,7 @@ var render = function() {
                               _c("p", { staticClass: "font-weight-bold" }, [
                                 _vm._v(
                                   "\n                                    " +
-                                    _vm._s(user.user_id) +
+                                    _vm._s(user.nameCreate) +
                                     "\n                                "
                                 )
                               ])
@@ -50960,7 +50967,7 @@ var render = function() {
                               _c("p", { staticClass: "font-weight-bold" }, [
                                 _vm._v(
                                   "\n                                    " +
-                                    _vm._s(user.updated_by) +
+                                    _vm._s(user.nameUpdate) +
                                     "\n                                "
                                 )
                               ])
