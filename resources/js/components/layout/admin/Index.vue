@@ -1,16 +1,16 @@
 <template>
-        <div class="container-fluid vh-100" id="app">
-        <message-item></message-item>
+        <div class="container-fluid mh-100 bg-white" >
+          <message-item></message-item>
 
-        <div class="row d-flex h-100">
-            <div id="nav-left" class="">
-                <Nav />
-            </div>
-            <div id="main-right" class="flex-grow-1 overflow-hidden">
-                 <Header/>
-                 <slot name="MainRight"></slot>
-            </div>
-        </div>
+          <div class="row h-100">
+              <div id="nav-left" class="min-vh-100">
+                  <Nav />
+              </div>
+              <div id="main-right" class="flex-grow-1 h-100">
+                  <Header/>
+                  <slot name="MainRight"></slot>
+              </div>
+          </div>
     </div>
 </template>
 <script>
@@ -29,7 +29,7 @@ export default {
 </script>
 <style>
 #nav-left {
-  width: 100px;
+  flex-basis: 100px;
   background-color: #b3e5fc;
 }
 

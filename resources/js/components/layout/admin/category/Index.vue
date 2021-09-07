@@ -110,7 +110,7 @@ import IndexItem from '../Index.vue';
 import PaginationItem from '../Pagination.vue';
 import RepositoryFactory from '../../../repositoryfactory/RepositoryFactory.js';
 const CategoryRepository = RepositoryFactory.get('category');
-import {mapActions} from 'vuex';
+import {mapActions, mapGetters} from 'vuex';
 
 export default {
     name: 'CategoryItem',

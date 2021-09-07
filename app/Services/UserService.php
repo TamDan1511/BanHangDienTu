@@ -21,6 +21,7 @@ class UserService{
 
 	public function store($validated)
 	{
+		/// ssd
 		$validated['password'] = Hash::make($validated['password']);
 		if(isset($validated['picture'])){
 			$picture = $validated['picture'];

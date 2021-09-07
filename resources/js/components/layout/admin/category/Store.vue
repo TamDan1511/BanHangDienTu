@@ -1,7 +1,7 @@
 <template>
     <index-item>
         <template v-slot:MainRight> 
-        <div class="h-100 p-3 bg-form">
+        <div class="vh-100 p-3 bg-form">
             <h5 class="d-inline-block font-weight-bold">{{  title }}</h5>
             <ul class="nav">
                 <li class="nav-item mr-2 ml-auto">
@@ -109,6 +109,7 @@ export default {
 
         let data = await CategoryRepository.getCategoryAll();
         this.categoriesAll = data.categoriesAll;
+        this.category.parent_id = this.categoriesAll[0].id 
       
         
     },
@@ -135,6 +136,7 @@ export default {
                     this.category = this.resetCategory();
                     let data = await CategoryRepository.getCategoryAll();
                     this.categoriesAll = data.categoriesAll;
+                    this.category.parent_id = this.categoriesAll[0].id 
                 } 
                  
             }
@@ -143,7 +145,7 @@ export default {
             return {
                     name: '',
                     status: 1,
-                    parent_id: 1
+                    parent_id: 0
                 };
         },
         back() {

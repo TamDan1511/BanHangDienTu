@@ -18,13 +18,14 @@
                     </div>
 
                 </div>
-                <div class="input-group">
+                <div class="input-group position-relative">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="password">
                             <i class="fa fa-lock text-info" aria-hidden="true"></i>
                         </span>
                     </div>
-                    <input type="text" class="form-control" :class="{'is-invalid': errors.password}" v-model="user.password" placeholder="Mật khẩu" aria-describedby="password">
+                    <input :type="showPass ? 'text' : 'password'" class="form-control" :class="{'is-invalid': errors.password}" v-model="user.password" placeholder="Mật khẩu" aria-describedby="password">
+                    <i class="fa position-absolute show-pass" :class="{'fa-eye' : showPass, 'fa-eye-slash': !showPass}" @click="showPass = !showPass" aria-hidden="true"></i>
                     <div class="invalid-feedback" id="password">
                         {{errors.password}}
                     </div>
@@ -33,11 +34,7 @@
                     <div v-if="loading" class="ml-3 spinner-border spinner-border-sm text-primary" role="status">        
                     </div>
                 </button>
-                <div class="custom-control custom-checkbox mt-3 text-left">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Nhớ đăng nhập</label>
-                </div>
-                <router-link class="text-warning mt-3 d-inline-block text-right" to="/admin/password-forget">Quên mật khẩu?</router-link>
+                <router-link class="text-danger mt-3 d-inline-block text-right" to="/admin/password-forget">Quên mật khẩu?</router-link>
             </form>
         </div>
     </div>
@@ -57,10 +54,9 @@ export default {
                 email: '',
                 password: ''
             },
-
-            errors: {
-            },
-            loading: false
+            errors: {},
+            loading: false,
+            showPass: false
         }
     },
     mounted(){
@@ -104,6 +100,13 @@ export default {
     font-size: 1.2rem;
     width: 50px;
     height: 50px;
+}
+
+.show-pass{
+    right: 35px;
+    line-height: 37px;
+    z-index: 10;
+    color: #2962ff;
 }
 
 </style>

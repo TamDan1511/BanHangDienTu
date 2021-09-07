@@ -1,7 +1,7 @@
 <template>
     <index-item>
         <template v-slot:MainRight> 
-        <div class="h-100 p-3 bg-form">
+        <div class="vh-100 p-3 bg-form">
             <h5 class="d-inline-block font-weight-bold">{{  title }}</h5>
             <ul class="nav">
                 <li class="nav-item mr-2 ml-auto">

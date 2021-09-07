@@ -1,7 +1,7 @@
 <template>
     <index-item>
         <template v-slot:MainRight>
-            <div class="bg-white h-100 p-3">
+            <div class="h-100 p-3">
                 <h5 class="d-inline-block font-weight-bold">
                     Danh sách người dùng
                 </h5>

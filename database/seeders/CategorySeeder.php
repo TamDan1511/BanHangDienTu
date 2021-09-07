@@ -17,11 +17,13 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             'name' => 'root',
             'status' => 1,
-            'user_id' => 38,
+            'user_id' => 1,
             'parent_id' => 0,
             'level' => 0,
             'left' => 0,
-            'right' => 1
+            'right' => 1,
+            'first' => 0,
+            'last' => 0
         ]);
     }
 }

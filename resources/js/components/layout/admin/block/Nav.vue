@@ -13,10 +13,10 @@
             </router-link>
         </li>
         <li class="nav-item text-center">
-            <a class="nav-link" href="#">
+            <router-link class="nav-link" :to="{name: 'ProductItem'}">
                 <img src="https://img.icons8.com/dusk/40/000000/product.png" />
                 <span class="nav-color font-weight-bold">Product</span>
-            </a>
+            </router-link>
         </li>
         <li class="nav-item text-center">
             <router-link class="nav-link" :to="{name: 'CategoryItem'}">
