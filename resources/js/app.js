@@ -12,6 +12,7 @@ import App from './components/App.vue';
 import router from './router.js';
 import store from './store';
 
+
 Vue.prototype.$ = $;
 Vue.prototype._ = _;
 Vue.use(Dialog);

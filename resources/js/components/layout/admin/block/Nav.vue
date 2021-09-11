@@ -25,7 +25,7 @@
             </router-link>
         </li>
         <li class="nav-item text-center">
-            <a class="nav-link" href="#">
+            <a class="nav-link"  >
                 <img src="https://img.icons8.com/fluency/40/000000/sorting-options.png" />
                 <span class="nav-color font-weight-bold">Slider</span>
             </a>

@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide-core.min.css" rel="stylesheet">
         <script src="https://use.fontawesome.com/aefa161e3a.js"></script>
         <title>Laravel</title>
  

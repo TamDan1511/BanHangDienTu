@@ -22,15 +22,17 @@
                 </li>
             </ul>
             <div class="mt-4">
-                <table class="table table-striped  text-center" id="userList">
+                <table class="table table-striped  text-center" id="userList" v-if="products.length > 0">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Tên danh mục</th>    
-                            <th>Danh mục cha</th>
-                            <th>Di chuyển</th>
+                            <th>Hình ảnh</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá</th>    
+                            <th>Số lượng</th>
+                            <th>Giảm giá</th>
+                            <th>Thời gian giảm giá</th>
                             <th>Trạng thái</th>
-                            <th>Tạo mới</th>
                             <th>Cập nhật</th>
                             <th>Hành động</th>
                         </tr>
@@ -40,12 +42,13 @@
                                 <td>{{ setStt(index)}}</td>
                                                 
                                 <td>   
-                                    <select class="custom-select custom-select-sm parent-id" style="max-width: 270px" @change="moveLeft(category.id, $event.target.value)">
-                                        
-                                    </select>
-                              
+                                    <img :src="setPicturePath(product.picture)" class="picture">
                                 </td>
-                               
+                               <td width="200">{{ product.name }}</td>
+                               <td>{{ product.price }}</td>
+                               <td>{{ product.quantities }}</td>
+                               <td>{{ product.discount }}</td>
+                               <td>{{ product.time_discount }}</td>
                                 <td>
                                     <button v-if="product.status == 1" @click="changeActive(product)" class="btn btn-success btn-sm">
                                         <i class="fa fa-check-circle mr-2" aria-hidden="true"></i>Kích hoạt</button>
@@ -54,26 +57,27 @@
                                 </td>
             
                                 <td>
-                                    {{product.created_at}}
-                                    <p class="font-weight-bold">{{ product.nameCreate}}</p>
-                                </td>
-                                <td>
                                     {{product.updated_at}}
                                     <p class="font-weight-bold">{{ product.nameUpdate}}</p>
                                 </td>
                                 <td>
-                                    <router-link :to="{name: 'CategoryEdit', query: {'danhmuc': product.id}}" class="btn btn-warning"><i class="fa fa-pencil-square" aria-hidden="true"></i></router-link>
+                                    <button data-toggle="modal" type="button" @click="showModal(product)"  data-target="#detail-product" class="btn btn-danger"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    <router-link :to="{name: 'ProductEdit', query: {'sanpham': product.id}}" class="btn btn-warning"><i class="fa fa-pencil-square" aria-hidden="true"></i></router-link>
                                     <button @click="deleteItem(product.id)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                 </td>
                             </tr>
                  
                     </tbody>
                 </table>
+                <p v-else class="text-center text-danger">không có dữ liệu</p>
             </div>
             <div id="pagination mt-5">
-                <pagination-item v-on:change-page="changePage" v-if="pagi != null" :pagi="pagi"></pagination-item>
+                <pagination-item v-on:change-page="changePage" v-if="pagi != null && count > 6" :pagi="pagi"></pagination-item>
             </div>
+
+            <detail-item :subPicture="subPicture" :product="productDetail" />
         </div>
+ 
         </template>
          
     </index-item>
@@ -81,53 +85,60 @@
 <script>
 import IndexItem from '../Index.vue';
 import PaginationItem from '../Pagination.vue';
+import DetailItem from './Detail.vue';
 import RepositoryFactory from '../../../repositoryfactory/RepositoryFactory.js';
 const ProductRepository = RepositoryFactory.get('product');
 import {mapActions} from 'vuex';
+ 
 
 export default {
     name: 'ProductItem',
     metaInfo: {
-        title: 'Danh sách danh mục'
+        title: 'Danh sách sản phẩm'
     },
     data: function() {
         return {
-            path: '/upload/category/',
+            path: '/upload/product/',
             products: [],
             pagi: null,
             active: 0,
             count: 0,
             level: '-',
-            categoriesAll: []
+            categoriesAll: [],
+            productDetail: null,
+            subPicture: [],
+
         }
     },
     components: {
         IndexItem,
-        PaginationItem
-    },
-    computed: {
-         
-
-    },
+        PaginationItem,
+        DetailItem
+    }, 
     async mounted() {
 
-        // this.$loading.show({ delay: 0, background: 'rgba(246, 246, 246, 0.5)' })
-        // const productData = await ProductRepository.getAll(this.$route.query.page);
-        // this.$loading.hide();
-        // this.pagi = productData.categories;
-        // this.products = productData.categories.data;
-        // this.categoriesAll = productData.categoriesAll;
-        // this.active = productData.active;
-        // this.count = productData.count;
-        // if (this.$route.params.isActive != null) {
+        this.$loading.show({ delay: 0, background: 'rgba(246, 246, 246, 0.5)' })
+        const productData = await ProductRepository.getAll(this.$route.query.page);
+        this.$loading.hide();
+        this.pagi = productData.products;
+        this.products = productData.products.data;
+        this.categoriesAll = productData.categoriesAll;
+        this.active = productData.active;
+        this.count = productData.count;
+        if (this.$route.params.isActive != null) {
 
-        //     this.setMessage('Sửa thành công');
-        //     if(this.$route.params.type == 'add')
-        //         this.setMessage('Thêm thành công');
-        //     this.setActive(true);
+            this.setMessage('Sửa thành công');
+            if(this.$route.params.type == 'add')
+                this.setMessage('Thêm thành công');
+            this.setActive(true);
 
-        //     setTimeout(() => { this.setActive(false) }, 3000);
-        // }
+            setTimeout(() => { this.setActive(false) }, 3000);
+        }
+
+        $('#detail-product').on('hidden.bs.modal', function (event) {
+           this.subPicture = []
+        })
+         
     },
     methods: {
         changeActive: async function(product) {
@@ -203,7 +214,20 @@ export default {
 				'setMessage',
 				'setActive',
 				'setFlag'
-			]),
+		]),
+        setPicturePath(picture){
+            let str = picture.split('.');
+            return this.path + str[0] + '-200x150.' + str[1];
+        }, 
+        async showModal(product){
+            let sub_picture = await ProductRepository.getSubPicture(product.id);
+            this.subPicture.splice(0, 0, product);
+            this.subPicture = sub_picture;
+            this.productDetail = product;
+           
+             
+        }
+     
     }
 
 }
@@ -227,4 +251,17 @@ delete-item-leave-to {
     text-align-last: center;
 }
 
+.picture{
+    width: 100px;
+    height: 130px;
+    object-fit: fill;
+    border-radius: 5px;
+}
+#second #second-track{
+	text-align: center !important;
+}
+#second .splide__list{
+	display: inline-block;
+}
+ 
 </style>

@@ -4,7 +4,7 @@ use App\Http\Controllers\Api\Admin\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Admin\UserController;
- 
+use App\Http\Controllers\Api\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,6 +36,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:api'], function(){
 
     // product
     Route::apiResource('/product', ProductController::class);
+
+    Route::get('/getSubPicture/{id}', [ProductController::class, 'getSubPicture']);
+ 
 });
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

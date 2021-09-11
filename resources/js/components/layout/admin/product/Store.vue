@@ -3,7 +3,7 @@
         <template v-slot:MainRight> 
         <div class="h-100 p-3 bg-form">
             <h5 class="d-inline-block font-weight-bold">{{  title }}</h5>
-            <ul class="nav">
+             <ul class="nav">
                 <li class="nav-item mr-2 ml-auto">
                     <button class="btn btn-warning" @click="form('save')">
                         <img src="https://img.icons8.com/office/24/000000/save.png" />
@@ -97,27 +97,34 @@
                         <div class="form-group row">
                             <label for="status" class="col-sm-3 col-form-label font-weight-bold">Chọn danh mục:</label>
                             <div class="col-sm-9">
-                                <select class="custom-select parent-id" v-model="product.category_id">
+                                <select class="custom-select parent-id" v-model="product.category_id" :class="{'is-invalid': errors.category_id, 'is-valid': product.category_id}">
                                         <template v-for="item in categoriesAll">
                                             <option :disabled="item.id == 0" :value="item.id">{{ level.repeat(item.level * 4) + item.name + level.repeat(item.level * 4) }}</option>          
                                         </template>
                                 </select>
+                                <div v-if="errors.category_id" class="invalid-feedback">
+                                    {{errors.category_id[0]}}
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="status" class="col-sm-3 col-form-label font-weight-bold">Hình ảnh chính:</label>
                             <div class="col-sm-9">
                                 <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Chọn hình ảnh</label>
+                                    <input type="file" :class="{'is-invalid': errors.picture, 'is-valid': product.picture}" class="custom-file-input" id="customFile" @change="setPicture">
+                                    <label class="custom-file-label" for="customFile">Chọn hình ảnh</label>
+                                    <div v-if="errors.picture" class="invalid-feedback">
+                                        {{errors.picture[0]}}
+                                    </div>
                                 </div>
+                                 
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="status" class="col-sm-3 col-form-label font-weight-bold">Hình ảnh phụ:</label>
                             <div class="col-sm-9" style="min-height: 200px">
                                 <div class="border bg-white h-100">
-                                    <input type="file" multiple class="d-none" id="picture">
+                                    <input type="file" multiple class="d-none" id="picture" accept="image/*">
                                     <ul class="nav p-3" id="list-picture">
                                         <li class="nav-item mr-3 mb-3">
                                             <div @click.prevent="$('#picture').click()" style="border: 3px dotted #aa00ff; width: 100px; height: 120px;" class="text-center nav-link">
@@ -133,7 +140,7 @@
                        <div class="form-group row">
                             <label for="status" class="col-sm-3 col-form-label font-weight-bold">Mô tả:</label>
                             <div class="col-sm-9">
-                                  <textarea class="editor" id="editor"></textarea>
+                                  <textarea class="editor" id="description" v-model="product.description"></textarea>
                             </div>
                         </div>
                     </form>
@@ -144,21 +151,26 @@
                             <div class="col-sm-7">
                                 <div class="row-option">
                                     <div @click="pushOption('down')" class=""><i class="fa fa-minus" aria-hidden="true"></i></div>
-                                    <div class="d-inline-block border-left border-info border-right">{{ product.options.length }}</div>
+                                    <div class="d-inline-block border-left border-info border-right">{{ options.length}}</div>
                                     <div @click="pushOption('up')" class=""><i class="fa fa-plus" aria-hidden="true"></i></div>
                                 </div>
                             </div>
                     </div>
                    
-                    <div class="form-group row" v-for="(item, index) in product.options" :key="index">
+                    <div class="form-group row" v-for="(item, index) in options" :key="index">
                         <div class="col-sm-5">
-                            <input type="text" v-model="item.key" class="form-control" placeholder="Tên thông số">
+                            <input type="text" :class="{'is-valid': item.key != '', 'is-invalid': errOptions[index].key}" v-model="item.key" class="form-control" placeholder="Tên thông số">
+                            <div v-if="errOptions[index].key" class="invalid-feedback">
+                                {{errOptions[index].key}}
+                            </div>
                         </div>
                         <div class="col-sm-7">
-                            <input type="text" v-model="item.value" class="form-control" placeholder="Mô tả">
+                            <input type="text" :class="{'is-valid': item.value != '', 'is-invalid': errOptions[index].value}" v-model="item.value" class="form-control" placeholder="Mô tả">
+                            <div v-if="errOptions[index].value" class="invalid-feedback">
+                                {{errOptions[index].value}}
+                            </div>
+
                         </div>
-                         
-                        
                     </div>
                 </div> 
             </div>        
@@ -170,7 +182,7 @@
 import IndexItem from '../Index.vue';
 import RepositoryFactory from '../../../repositoryfactory/RepositoryFactory.js';
 const CategoryRepository = RepositoryFactory.get('category');
-const ProductRepository = RepositoryFactory.get('category');
+const ProductRepository = RepositoryFactory.get('product');
 import {mapActions} from 'vuex';
  
 export default {
@@ -188,6 +200,8 @@ export default {
             errors: {},
             categoriesAll: [],
             level: '-',
+            errOptions: [],
+            options: []
             
         }
     },
@@ -213,37 +227,78 @@ export default {
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").html(fileName);
         });
-        CKEDITOR.replace('editor');
+        CKEDITOR.replace('description');
         this.uploadPicture();
-        this.$('.del-picture').click(function(){
-            alert('abc');
-        })
+         
          
     },
     methods: {
         form: async function(type) {
-           
-            let product;
-            this.$loading.show({ delay: 0, background: 'rgba(246, 246, 246, 0.5)' });
-
-            product = await ProductRepository.store(this.product, type, this);
-            this.$loading.hide();
-             
-            if (typeof product !== 'undefined') {
-                if(product.status != 200 ){
-                    this.errors = product.errors; 
-                    for (const [key, value] of Object.entries(this.errors)) {
-                       this.product[key] = '';
-
+            let flag = false;
+            if(this.options.length > 0){
+                for(const [key, value] of Object.entries(this.options)){
+                    if(value.key == ''){ 
+                        this.$set(this.errOptions[key], 'key', 'Dữ liệu trống!')
+                    }else{
+                        this.$set(this.errOptions[key], 'key', '')
                     }
-                }else{
-                    this.setMessage('Thêm thành công');
-                    this.setActive(true);
-                    setTimeout(() => { this.setActive(false)}, 3000);
-                    this.product = this.resetProduct();
-                } 
+
+                    if(value.value == ''){
+                        this.$set(this.errOptions[key], 'value', 'Dữ liệu trống!')
+                    }else{
+                        this.$set(this.errOptions[key], 'value', '')
+                    }
+
+                    if(value.key == '' || value.value == ''){
+                        flag = true;
+                    }else{
+                        flag = false;
+                    }
+                }
+            } 
+
+            if(!flag) {
+                this.getImage();
                  
-            }
+                if(this.options.length > 0){
+                    this.product.options = JSON.stringify(this.options);    
+                }
+                this.product.description = CKEDITOR.instances.description.getData();
+
+                this.$loading.show({ delay: 0, background: 'rgba(246, 246, 246, 0.5)' });
+
+                let product = await ProductRepository.store(this.product, type, this);
+                this.$loading.hide();
+                
+                if (typeof product !== 'undefined') {
+                    if(product.status != 200 ){     
+                        this.errors =  product.errors; 
+                        
+                        for (const [key, value] of Object.entries(this.errors)) {
+                            if(key != 'options')
+                                this.product[key] = '';
+                            if('category_id' == key)
+                                this.product[key] = 0;
+
+                        }
+                    }else{
+                        this.setMessage('Thêm thành công');
+                        this.setActive(true);
+                        setTimeout(() => { this.setActive(false)}, 3000);
+                        this.product = this.resetProduct();
+                        this.options = [];
+                        $('#list-picture').find('li').each(function(index, ele){
+                            if(index > 0) ele.remove();
+                        });
+
+                        CKEDITOR.instances['description'].setData('');
+                        $(".custom-file-input").siblings(".custom-file-label").html('Chọn hình ảnh');
+                         
+                    } 
+                }
+                     
+            }    
+                 
         },
         resetProduct(){
             return {
@@ -253,10 +308,11 @@ export default {
                     discount: '',
                     picture: '',
                     status: 1,
-                    time_discount: null,
+                    time_discount: '',
                     description: '',
-                    options: [{key: '', value: ''}],
-                    category_id: 0
+                    options: '',
+                    category_id: 0,
+                    sub_image: ''
                 };
         },
         back() {
@@ -271,9 +327,13 @@ export default {
 
         pushOption(type){
             if(type == 'up'){
-                this.product.options.push({key: '', value: ''})
+            {
+                this.errOptions.splice(this.options.length, 0, {})
+                this.options.push({key: '', value: ''});
+                 
+            }     
             }else{
-               this.product.options.splice(this.product.options.length - 1 , 1); 
+               this.options.splice(this.options.length - 1 , 1); 
             }
         },
 
@@ -285,10 +345,18 @@ export default {
                     let li = document.createElement('li');
                     let img = document.createElement('img');
                     rootThis.$(li).append('<i class="fa fa-times-circle-o del-picture" aria-hidden="true"></i>');
+                    
                     li.classList.add('mr-2', 'mb-3')
                     listPicture.append(li);
+                    rootThis.$('.del-picture').click(function(){                   
+                       $(this).parent().hide('slow', function(){
+                           this.remove();
+                       });
+                    });
 
                     img.src = URL.createObjectURL(this.files[i]);
+                    img.file = this.files[i];
+                    console.log(this.files[i])
                     img.classList.add('item-picture', 'img-thumbnail')
                     img.onload = function () {
                         URL.revokeObjectURL(this.src);
@@ -297,14 +365,22 @@ export default {
                     
                 }  
              });
-        } 
+        },
+
+        getImage(){
+            let listImage = this.$('.item-picture');
+            this.product.sub_image = listImage 
+             
+        },
+
+        setPicture(event){
+            this.product.picture = event.target.files[0];
+        }
 
        
     } 
 }
-function delPicture(){
-    console.log('abc')
-}
+ 
 </script>
 <style>
 .bg-form {
