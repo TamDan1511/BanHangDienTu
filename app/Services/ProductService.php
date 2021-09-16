@@ -184,6 +184,7 @@ class ProductService{
 		return response()->json(['update' => $update > 0]);
 	}
 
+<<<<<<< HEAD
 	public function updateCategory($request)
 	{
 	 
@@ -203,6 +204,12 @@ class ProductService{
 		}
 
 		return $affected;
+=======
+  
+	public function destroy($id)
+    {
+         
+>>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
     }
 }
 	

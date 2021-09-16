@@ -29,7 +29,10 @@
                             <th>Tên danh mục</th>    
                             <th>Danh mục cha</th>
                             <th>Di chuyển</th>
+<<<<<<< HEAD
                             <th>Icon</th>
+=======
+>>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
                             <th>Trạng thái</th>
                             <th>Tạo mới</th>
                             <th>Cập nhật</th>
@@ -75,9 +78,12 @@
                                     </span>
                                 </td>
                                 <td>
+<<<<<<< HEAD
                                     <img v-if="category.icon != null" :src="'/upload/category/' + category.icon" alt="">
                                 </td>
                                 <td>
+=======
+>>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
                                     <button v-if="category.status == 1" @click="changeActive(category)" class="btn btn-success btn-sm">
                                         <i class="fa fa-check-circle mr-2" aria-hidden="true"></i>Kích hoạt</button>
                                     <button v-else class="btn btn-danger btn-sm" @click="changeActive(category)">
@@ -159,7 +165,10 @@ export default {
 
             setTimeout(() => { this.setActive(false) }, 3000);
         }
+<<<<<<< HEAD
  
+=======
+>>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
     },
     methods: {
         changeActive: async function(category) {
@@ -206,6 +215,7 @@ export default {
                             this.$loading.show({ delay: 0, background: 'rgba(246, 246, 246, 0.5)' }) 
                             let del = await CategoryRepository.deleteItem(id)
                             this.$loading.hide();
+<<<<<<< HEAD
                             if(typeof del.error != 'undefined'){
                                 this.setMessage('Đã có lỗi không thể xóa!');
                                 this.setFlag(false);
@@ -213,6 +223,9 @@ export default {
                                 setTimeout(() => { this.setActive(false); }, 3000);    
                             }
                             else if(del > 0){
+=======
+                            if(del > 0){
+>>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
                                 this.setMessage('Xóa thành công');
                                 this.setFlag(true);
                                 this.setActive(true);

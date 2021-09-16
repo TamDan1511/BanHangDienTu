@@ -5,8 +5,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\Admin\ProductController;
+<<<<<<< HEAD
 use App\Http\Controllers\Api\Admin\MenuController;
 use App\Http\Controllers\Api\Admin\BannerController;
+=======
+>>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,6 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:api'], function(){
     Route::apiResource('/product', ProductController::class);
 
     Route::get('/getSubPicture/{id}', [ProductController::class, 'getSubPicture']);
+<<<<<<< HEAD
     Route::post('/product/changeActive', [ProductController::class, 'changeActive']);
     Route::post('/product/updateCategory', [ProductController::class, 'updateCategory']);
 
@@ -54,6 +58,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:api'], function(){
 
     Route::post('/banner/changeActive', [BannerController::class, 'changeActive']);
   
+=======
+ 
+>>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
 });
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

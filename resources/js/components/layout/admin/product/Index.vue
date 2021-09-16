@@ -126,7 +126,6 @@ export default {
         this.$loading.hide();
         this.pagi = productData.products;
         this.products = productData.products.data;
-
         this.active = productData.active;
         this.count = productData.count;
         if (this.$route.params.isActive != null) {
