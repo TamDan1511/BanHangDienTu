@@ -83,7 +83,7 @@
                                         </div>
                                     </div>
                                 </splide-slide>
- <splide-slide>
+                                <splide-slide>
                                     <div class="wrapper-onsale-item pb-3">
                                         <div class="m-2 rounded-circle text-center d-inline-block bgcolor-custom position-absolute" style="width: 70px; height: 70px; right: 0">
                                             <span class="font-weight-bold" style="line-height: 65px">On sale</span>
@@ -152,6 +152,15 @@
                         </div>
 
                     </div>
+
+                    <div class="col-md-3">
+                        <h5 class="pb-2 border-bottom text-center px-3">Laptop</h5> 
+                        <div class="row">
+                            <div class="col">
+                                    
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -213,24 +222,28 @@ export default {
     }
 
 }
+
 @media screen and (max-width: 576px) {
-    .wrapper-onsale-item img{
+    .wrapper-onsale-item img {
         max-width: 100% !important;
     }
 
-     .text-fs{
-            font-size: 1.2rem !important;
+    .text-fs {
+        font-size: 1.2rem !important;
+    }
+
+    .text-on-sale {
+        width: 200px !important;
+
+        a {
+            font-size: 0.9rem !important;
+            ;
         }
 
-        .text-on-sale {
-            width: 200px !important;
-            a{
-                font-size: 0.9rem !important;;
-            }
-            
-        }
+    }
 
 }
+
 .wrapper-onsale {
     border: 2px solid #FED700;
     border-radius: 30px;
@@ -244,9 +257,11 @@ export default {
                 min-height: 300px;
             }
         }
-        .text-fs{
+
+        .text-fs {
             font-size: 1.8rem;
         }
+
         .text-on-sale {
             margin: 0 auto;
             width: 250px;

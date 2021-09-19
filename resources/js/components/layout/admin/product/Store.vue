@@ -429,7 +429,7 @@ export default {
 #list-picture li img{
     width: 100px;
     height: 120px;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 </style>

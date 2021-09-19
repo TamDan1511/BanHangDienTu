@@ -69,14 +69,15 @@ class ProductRepository{
 		unlink($str500x500);
 		unlink(public_path('upload/product/' . $arrPicture[0] . '-220x200.' . $arrPicture[1]));
 		unlink(public_path('upload/product/' . $product->picture));
-		$listImage = $product->images();
+		$listImage = $product->getPicture;
+	 
 		if(!empty($listImage)){
-			$listImage->delete();
+			$product->getPicture()->delete();
 			foreach($listImage as $value){
 				$arrPicture = explode('.', $value->picture);
 				unlink(public_path('upload/product/' . $arrPicture[0] . '-500x500.' . $arrPicture[1]));
 				unlink(public_path('upload/product/' . $arrPicture[0] . '-220x200.' . $arrPicture[1]));
-				unlink(public_path('upload/product/' . $product->picture));
+				unlink(public_path('upload/product/' . $value->picture));
 			}
 		}
 		 

@@ -232,7 +232,7 @@ export default {
 		]),
         setPicturePath(picture){
             let str = picture.split('.');
-            return this.path + str[0] + '-200x150.' + str[1];
+            return this.path + str[0] + '-220x200.' + str[1];
         }, 
         async showModal(product){
             let sub_picture = await ProductRepository.getSubPicture(product.id);

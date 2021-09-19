@@ -11847,7 +11847,7 @@ var CategoryRepository = _repositoryfactory_RepositoryFactory_js__WEBPACK_IMPORT
   }, (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapActions)('message', ['setMessage', 'setActive', 'setFlag'])), {}, {
     setPicturePath: function setPicturePath(picture) {
       var str = picture.split('.');
-      return this.path + str[0] + '-200x150.' + str[1];
+      return this.path + str[0] + '-220x200.' + str[1];
     },
     showModal: function showModal(product) {
       var _this4 = this;
@@ -12933,7 +12933,7 @@ var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js"
     setPicturePath: function setPicturePath(picture) {
       if (!(picture instanceof File)) {
         var str = picture.split('.');
-        return this.path + str[0] + '-200x150.' + str[1];
+        return this.path + str[0] + '-220x200.' + str[1];
       } else {
         var pic = this.product.picture;
         return URL.createObjectURL(pic);
@@ -14690,6 +14690,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _splidejs_vue_splide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @splidejs/vue-splide */ "./node_modules/@splidejs/vue-splide/src/js/index.js");
 /* harmony import */ var _Index_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Index.vue */ "./resources/js/components/layout/default/Index.vue");
 /* harmony import */ var _Slider_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Slider.vue */ "./resources/js/components/layout/default/index/Slider.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -21185,7 +21194,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-form {\r\n    background-color: #f1f8e9 !important;\n}\n.row{\r\n    flex-wrap: nowrap !important;\n}\n.row-option{\r\n    height: 30px;\r\n    width: 100px;\r\n    text-align: center;\r\n    display: flex;\r\n    border: 2px solid #9e9e9e;\r\n    border-radius: 5px;\n}\n.row-option div:nth-child(2){\r\n    width: 40px;\n}\n.row-option div:nth-child(1){\r\n    width: 30px;\n}\n.row-option div:nth-child(3){\r\n    width: 30px;\n}\n#list-picture li{\r\n    position: relative;\r\n    display: inline-block;\n}\n#list-picture .del-picture{\r\n    position: absolute;\r\n    z-index: 20;\r\n    font-size: 1.4rem;\r\n    right: -5px;\r\n    top: -5px;\r\n    color: red;\n}\n#list-picture li img{\r\n    width: 100px;\r\n    height: 120px;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-form {\r\n    background-color: #f1f8e9 !important;\n}\n.row{\r\n    flex-wrap: nowrap !important;\n}\n.row-option{\r\n    height: 30px;\r\n    width: 100px;\r\n    text-align: center;\r\n    display: flex;\r\n    border: 2px solid #9e9e9e;\r\n    border-radius: 5px;\n}\n.row-option div:nth-child(2){\r\n    width: 40px;\n}\n.row-option div:nth-child(1){\r\n    width: 30px;\n}\n.row-option div:nth-child(3){\r\n    width: 30px;\n}\n#list-picture li{\r\n    position: relative;\r\n    display: inline-block;\n}\n#list-picture .del-picture{\r\n    position: absolute;\r\n    z-index: 20;\r\n    font-size: 1.4rem;\r\n    right: -5px;\r\n    top: -5px;\r\n    color: red;\n}\n#list-picture li img{\r\n    width: 100px;\r\n    height: 120px;\r\n    -o-object-fit: fill;\r\n       object-fit: fill;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -95007,7 +95016,19 @@ var render = function() {
                           1
                         )
                       ]
-                    )
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-3" }, [
+                      _c(
+                        "h5",
+                        { staticClass: "pb-2 border-bottom text-center px-3" },
+                        [_vm._v("Laptop")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col" })
+                      ])
+                    ])
                   ])
                 ])
               ]

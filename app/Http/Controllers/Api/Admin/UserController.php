@@ -99,6 +99,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+     
         \App\Models\User::find($id)->AauthAcessToken()->delete();
         return \App\Models\User::destroy($id);
     }

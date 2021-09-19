@@ -427,7 +427,7 @@ export default {
         setPicturePath(picture){
             if(!(picture instanceof File)){
                 let str = picture.split('.');
-                return this.path + str[0] + '-200x150.' + str[1];
+                return this.path + str[0] + '-220x200.' + str[1];
             }else{
                 let pic = this.product.picture;
                 return URL.createObjectURL(pic);

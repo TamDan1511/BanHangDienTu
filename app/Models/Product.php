@@ -19,8 +19,8 @@ class Product extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function images()
+    public function getPicture()
     {
-        return $this->hasMany(\App\Models\Image::class);
+        return $this->hasMany(\App\Models\Image::class, 'product_id');
     }
 }
