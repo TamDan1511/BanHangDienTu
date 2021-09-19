@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Services;
 use App\Repositories\CategoryRepository;
 use App\NestedSetModel\NestedModel;
@@ -23,12 +23,12 @@ class CategoryService{
 
 	public function store($validated)
 	{
-		 
+
 		$validated['user_id'] = auth('api')->user()->id;
 
 		$option['position'] = 'left';
 		$model = $this->nestedModel->insertNode($validated, $validated['parent_id'], $option);
-		return $model;	 
+		return $model;
 	}
 
 	public function update($validated, $id)
@@ -48,7 +48,7 @@ class CategoryService{
 		$category = $this->categoryRepository->find($id);
 		return response()->json([
 			'category' => $category
-		]);	
+		]);
 	}
 
 	public function changeActive($request)
@@ -64,14 +64,14 @@ class CategoryService{
 
 		if($type == 'up')
 			$this->nestedModel->moveUp($id);
-		else if($type == 'down') 
+		else if($type == 'down')
 			$this->nestedModel->moveDown($id);
-		else 
+		else
 		{
 			$option['position'] = 'left';
 			$parent_id 			= $request->parent_id;
-			$this->nestedModel->moveNode($id, $parent_id, $option);	
-		}	 
+			$this->nestedModel->moveNode($id, $parent_id, $option);
+		}
 
 		 return $this->categoryRepository->index();
 	}
@@ -86,5 +86,5 @@ class CategoryService{
         return $this->nestedModel->removeNode($id);
     }
 }
-	
+
  ?>

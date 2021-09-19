@@ -37,6 +37,12 @@
             </a>
         </li>
         <li class="nav-item text-center">
+            <router-link class="nav-link" :to="{name: 'BlogIndex'}">
+                <img src="https://img.icons8.com/clouds/40/000000/user.png" />
+                <span class="nav-color font-weight-bold">Blog</span>
+            </router-link>
+        </li>
+        <li class="nav-item text-center">
             <a class="nav-link" href="#">
                 <img src="https://img.icons8.com/fluency/40/000000/settings.png" />
                 <span class="nav-color font-weight-bold">Setting</span>

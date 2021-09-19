@@ -11,6 +11,11 @@ import PasswordForget from './components/layout/admin/user/PasswordForget.vue';
 import CategoryItem from './components/layout/admin/category/Index.vue';
 import CategoryStore from './components/layout/admin/category/Store.vue';
 import CategoryEdit from './components/layout/admin/category/Update.vue';
+
+import BlogIndex from './components/layout/admin/blog/Index.vue';
+import BlogStore from './components/layout/admin/blog/Store.vue';
+import BlogEdit from './components/layout/admin/blog/Update.vue';
+
 import VueMeta from 'vue-meta'
 Vue.use(VueRouter);
 Vue.use(VueMeta);
@@ -63,7 +68,22 @@ const routes = [
 		path: '/admin/category/sua-danh-muc',
 		name: 'CategoryEdit',
 		component: CategoryEdit
-	}
+	},
+    {
+        path: '/admin/blog',
+        name: 'BlogIndex',
+        component: BlogIndex
+    },
+    {
+        path: '/admin/blog/add-post',
+        name: 'BlogStore',
+        component: BlogStore
+    },
+    {
+        path: '/admin/blog/edit-post',
+        name: 'BlogEdit',
+        component: BlogEdit
+    },
 ];
 
 const router = new VueRouter({

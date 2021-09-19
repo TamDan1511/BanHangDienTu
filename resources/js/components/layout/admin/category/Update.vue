@@ -1,6 +1,6 @@
 <template>
     <index-item >
-        <template v-slot:MainRight> 
+        <template v-slot:MainRight>
         <div class="h-100 p-3 bg-form">
             <h5 class="d-inline-block font-weight-bold">{{  title }}</h5>
             <ul class="nav">
@@ -40,7 +40,7 @@
                                 {{errors.name[0]}}
                             </div>
                             </div>
-                             
+
                         </div>
                         <div class="form-group row">
                             <label for="status" class="col-sm-3 col-form-label font-weight-bold">Trạng thái</label>
@@ -66,7 +66,7 @@
                                 </select>
                             </div>
                         </div>
-                      
+
                     </form>
                 </div>
             </div>
@@ -108,39 +108,39 @@ export default {
         {
             if(this.$route.params.type == 'add')
                 this.setMessage('Thêm thành công');
-            this.setActive(true);  
+            this.setActive(true);
             setTimeout(() => { this.setActive(false)}, 3000);
         }
 
         let data = await CategoryRepository.getCategoryAll();
         this.categoriesAll = data.categoriesAll;
-    
+
     },
     methods: {
         form: async function(type) {
-           
+
             let category;
             this.$loading.show({ delay: 0, background: 'rgba(246, 246, 246, 0.5)' });
 
             category = await CategoryRepository.update(this.category, type, this);
             this.$loading.hide();
-             
+
             if (typeof category !== 'undefined') {
             	if(category.status != 200 ){
-            		this.errors = category.errors; 
+            		this.errors = category.errors;
 	                for (const [key, value] of Object.entries(this.errors)) {
 	                   this.category[key] = '';
 
 	                }
             	}else{
-                    
+
 	                this.setMessage('Sửa thành công');
-                    this.setActive(true);  
-	                 
+                    this.setActive(true);
+
 	                setTimeout(() => { this.setActive(false)}, 3000);
-	            } 
-                 
-            } 
+	            }
+
+            }
         },
         resetCategory(){
             return {
@@ -158,7 +158,7 @@ export default {
 				'setActive',
 				'setFlag'
 			])
-    } 
+    }
 }
 
 </script>

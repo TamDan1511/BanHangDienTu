@@ -5,12 +5,12 @@
             <h5 class="d-inline-block font-weight-bold">Danh sách người dùng</h5>
             <ul class="nav border-bottom pb-2 mt-3">
                 <li class="nav-item mr-2">
-                    <button class="btn btn-danger">Tổng: 
+                    <button class="btn btn-danger">Tổng:
                         <span class="d-inline-block px-1 rounded-circle bg-white text-danger">{{count}}</span>
                     </button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-info">Kích hoạt: 
+                    <button class="btn btn-info">Kích hoạt:
                         <span class="d-inline-block px-1 rounded-circle bg-white text-danger">{{active}}</span>
                     </button>
                 </li>
@@ -26,7 +26,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Tên danh mục</th>    
+                            <th>Tên danh mục</th>
                             <th>Danh mục cha</th>
                             <th>Di chuyển</th>
                             <th>Trạng thái</th>
@@ -44,16 +44,16 @@
                                         |{{level.repeat(category.level)}}
                                         <span class="d-inline-block rounded bg-warning px-2">{{category.level}}</span>
                                          {{category.name }}
-                                    </span> 
-                                </td>                 
-                                <td>   
+                                    </span>
+                                </td>
+                                <td>
                                     <select class="custom-select custom-select-sm parent-id" style="max-width: 270px" @change="moveLeft(category.id, $event.target.value)">
                                         <template v-for="(item, indexAll) in categoriesAll">
                                             <option :value="item.id" v-if="item.id == category.parent_id" selected>{{ level.repeat(item.level * 4) + item.name + level.repeat(item.level * 4) }}</option>
                                             <option :value="item.id" :disabled="item.left > category.left && item.left < category.right || category.id == item.id" v-else>{{ level.repeat(item.level * 4) + item.name + level.repeat(item.level * 4) }}</option>
                                         </template>
                                     </select>
-                              
+
                                 </td>
                                 <td>
                                     <button class="btn btn-info" @click="move(category.id, 'down')" v-if="category.first == 1 && category.last == 0">
@@ -62,7 +62,7 @@
                                     <button class="btn btn-info" @click="move(category.id, 'up')" v-else-if="category.first == 0 && category.last == 1">
                                         <i class="fa fa-arrow-up" aria-hidden="true"></i>
                                     </button>
-                                    <span v-else-if="category.first == 1 && category.last == 1"> 
+                                    <span v-else-if="category.first == 1 && category.last == 1">
                                     </span>
                                     <span v-else>
                                         <button class="btn btn-info" @click="move(category.id, 'up')">
@@ -79,7 +79,7 @@
                                     <button v-else class="btn btn-danger btn-sm" @click="changeActive(category)">
                                         <i class="mr-2 fa fa-times-circle" aria-hidden="true"></i>Không kích hoạt</button>
                                 </td>
-            
+
                                 <td>
                                     {{category.created_at}}
                                     <p class="font-weight-bold">{{ category.nameCreate}}</p>
@@ -93,7 +93,7 @@
                                     <button @click="deleteItem(category.id)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                 </td>
                             </tr>
-                 
+
                     </tbody>
                 </table>
             </div>
@@ -102,7 +102,7 @@
             </div>
         </div>
         </template>
-         
+
     </index-item>
 </template>
 <script>
@@ -133,7 +133,7 @@ export default {
         PaginationItem
     },
     computed: {
-         
+
 
     },
     async mounted() {
@@ -165,13 +165,13 @@ export default {
             let update = await CategoryRepository.changeActive(updateStatus);
             this.$loading.hide()
             if (update == true) {
-               
+
                 category.status = (category.status == 1) ? 0 : 1;
-                
+
                 this.setMessage('Sửa thành công');
                 this.setFlag(true);
                 this.setActive(true);
-                
+
                 setTimeout(() => { this.setActive(false); }, 3000);
             }
         },
@@ -197,42 +197,42 @@ export default {
                 btns: [{
                         label: 'OK',
                         color: '#09f',
-                        callback: async () => {   
-                            this.$loading.show({ delay: 0, background: 'rgba(246, 246, 246, 0.5)' }) 
+                        callback: async () => {
+                            this.$loading.show({ delay: 0, background: 'rgba(246, 246, 246, 0.5)' })
                             let del = await CategoryRepository.deleteItem(id)
                             this.$loading.hide();
                             if(del > 0){
                                 this.setMessage('Xóa thành công');
                                 this.setFlag(true);
                                 this.setActive(true);
-                                setTimeout(() => { this.setActive(false); }, 3000);    
+                                setTimeout(() => { this.setActive(false); }, 3000);
                                 const categoryData = await CategoryRepository.getAll(this.$route.query.page);
                                 this.pagi = categoryData.categories;
                                 this.categories = categoryData.categories.data;
                                 this.categoriesAll = categoryData.categoriesAll;
                                 this.active = categoryData.active;
                                 this.count = categoryData.count;
-                               
-                            }              
+
+                            }
                         },
                     },
                     {
                         label: 'Cancel',
-                        color: '#444' 
+                        color: '#444'
                     }
                 ],
             })
         },
-        setStt(i){    
-            return (6 * this.pagi.current_page - 6) + i + 1;  
+        setStt(i){
+            return (6 * this.pagi.current_page - 6) + i + 1;
         },
         ...mapActions('message', [
 				'setMessage',
 				'setActive',
 				'setFlag'
 			]),
-        
-        
+
+
         move: async function(id, type){
             this.$loading.show({ delay: 0, background: 'rgba(246, 246, 246, 0.5)' })
             let page            = this.$route.query.page;
@@ -241,7 +241,7 @@ export default {
             this.$loading.hide();
             this.categories     = data.categories.data;
             this.categoriesAll  = data.categoriesAll;
-          
+
         },
 
         moveLeft: async function(id, parent_id){
