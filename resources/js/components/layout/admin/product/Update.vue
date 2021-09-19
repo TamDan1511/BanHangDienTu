@@ -438,9 +438,53 @@ export default {
 }
 
 </script>
-<style>
-.bg-form {
-    background-color: #f5f5f5;
+<style scoped>
+bg-form {
+    background-color: #f1f8e9 !important;
 }
 
+.row{
+    flex-wrap: nowrap !important;
+}
+
+.row-option{
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    border: 2px solid #9e9e9e;
+    border-radius: 5px;
+     
+}
+
+.row-option div:nth-child(2){
+    width: 40px;
+}
+
+.row-option div:nth-child(1){
+    width: 30px;
+}
+.row-option div:nth-child(3){
+    width: 30px;
+}
+#list-picture li{
+    position: relative;
+    display: inline-block;
+     
+}
+
+#list-picture .del-picture{
+    position: absolute;
+    z-index: 20;
+    font-size: 1.4rem;
+    right: -5px;
+    top: -5px;
+    color: red;
+     
+}
+#list-picture li img{
+    width: 100px;
+    height: 120px;
+    object-fit: fill;
+}
 </style>

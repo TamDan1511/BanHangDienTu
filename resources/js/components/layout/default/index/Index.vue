@@ -34,7 +34,7 @@
                                             <span class="font-weight-bold" style="line-height: 65px">On sale</span>
                                         </div>
                                         <div class="img-on-sale text-center pt-5">
-                                            <img src="/upload/product/1uVa6ShnJ0TRoWLkL5bKsggV6ie6JNt1yvRUUPty-500x500.png" alt="">
+                                            <img src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-500x500.png" alt="">
                                         </div>
                                         <div class="text-center mt-3 text-on-sale">
                                             <h5><a href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
@@ -89,7 +89,7 @@
                                             <span class="font-weight-bold" style="line-height: 65px">On sale</span>
                                         </div>
                                         <div class="img-on-sale text-center pt-5">
-                                            <img src="/upload/product/1uVa6ShnJ0TRoWLkL5bKsggV6ie6JNt1yvRUUPty-500x500.png" alt="">
+                                            <img src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-500x500.png" alt="">
                                         </div>
                                         <div class="text-center mt-3 text-on-sale">
                                             <h5><a href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
@@ -153,11 +153,453 @@
 
                     </div>
 
-                    <div class="col-md-3">
-                        <h5 class="pb-2 border-bottom text-center px-3">Laptop</h5> 
-                        <div class="row">
-                            <div class="col">
-                                    
+                    <div class="col main-list-product">
+                        <!-- labtop -->
+                        <h5 class="pb-2 border-bottom text-center px-3 mt-md-0 mt-4">Laptop</h5>
+                        <div class="row mt-3" id="laptop" style="margin: 0px">
+                            <div class="col-lg-4 col-xl-3 col-md-4 col-6 py-3  product-item">
+                                <div class="product-item-w border-right">
+                                    <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                    <div class="wrapper-img text-center">
+                                        <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                        <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block">
+                                            <img src="/images/shopping-cart-20.png" alt="">
+                                        </button>
+                                    </div>
+
+                                    <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                        <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                    </div>
+
+                                </div>
+                            </div>
+                             <div class="col-lg-4 col-xl-3 col-md-4 col-6 py-3  product-item">
+                                <div class="product-item-w border-right">
+                                    <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                    <div class="wrapper-img text-center">
+                                        <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                        <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block">
+                                            <img src="/images/shopping-cart-20.png" alt="">
+                                        </button>
+                                    </div>
+
+                                    <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                        <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xl-3 col-md-4 py-3 col-6 product-item">
+                                <div class="product-item-w border-right">
+                                    <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                    <div class="wrapper-img text-center">
+                                        <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="d-inline-block mr-2 textfs-price" style=" text-decoration: line-through;">50.000 ₫</h6>
+                                            <h5 class="d-inline-block text-danger textfs-discount">50.000 ₫</h5>
+                                        </div>
+
+                                        <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block">
+                                            <img src="/images/shopping-cart-20.png" alt="">
+                                        </button>
+                                    </div>
+
+                                    <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                        <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xl-3 col-md-4 py-3 col-6 d-md-none d-xl-block product-item">
+                                <div class="product-item-w border-right">
+                                    <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                    <div class="wrapper-img text-center">
+                                        <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                        <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                            <img src="/images/shopping-cart-20.png" alt="">
+                                        </button>
+                                    </div>
+
+                                    <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                        <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- điện thoại -->
+                        <h5 class="pb-2 border-bottom text-center mt-4 px-3 mt-md-0 mt-4">Điện thoại</h5>
+                        <div class="row mt-3" id="dienthoai" style="margin: 0px">
+                            <div class="col-lg-4 col-xl-3 col-md-4 col-6 py-3  product-item">
+                                <div class="product-item-w border-right">
+                                    <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                    <div class="wrapper-img text-center">
+                                        <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                        <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                            <img src="/images/shopping-cart-20.png" alt="">
+                                        </button>
+                                    </div>
+
+                                    <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                        <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xl-3 col-md-4 py-3 col-6 product-item">
+                                <div class="product-item-w border-right">
+                                    <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                    <div class="wrapper-img text-center">
+                                        <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                        <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                            <img src="/images/shopping-cart-20.png" alt="">
+                                        </button>
+                                    </div>
+
+                                    <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                        <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xl-3 col-md-4 py-3 col-6 product-item">
+                                <div class="product-item-w border-right">
+                                    <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                    <div class="wrapper-img text-center">
+                                        <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="d-inline-block mr-2 textfs-price" style=" text-decoration: line-through;">50.000 ₫</h6>
+                                            <h5 class="d-inline-block text-danger textfs-discount">50.000 ₫</h5>
+                                        </div>
+
+                                        <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                            <img src="/images/shopping-cart-20.png" alt="">
+                                        </button>
+                                    </div>
+
+                                    <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                        <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xl-3 col-md-4 py-3 col-6 d-md-none d-xl-block product-item">
+                                <div class="product-item-w border-right">
+                                    <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                    <div class="wrapper-img text-center">
+                                        <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                        <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none ">
+                                            <img src="/images/shopping-cart-20.png" alt="">
+                                        </button>
+                                    </div>
+
+                                    <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                        <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="background: #f9f9f9; margin: 0px -15px;" class="mt-5" id="tab-categories">
+                <div class="container mt-5">
+                    <div class="row ">
+                        <div class="col">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#home">Laptop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#menu1">Router wifi</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#menu2">Iphone</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane container active" id="home">                       
+                                    <div class="row">
+                                        <div class="py-3 col-md-4 col-xl-2 col-lg-3 col-6 product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="py-3 col-md-4 col-xl-2 col-lg-3 col-6 product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>       
+                                        <div class="py-3 col-md-4 col-xl-2 col-lg-3 col-6 product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="py-3 col-md-4 col-xl-2 col-lg-3 col-6 product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                         <div class="py-3 col-xl-2 d-none d-xl-block product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="py-3 col-xl-2 d-none d-xl-block product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="py-3 col-md-4 col-xl-2 col-lg-3 col-6 product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="py-3 col-md-4 col-xl-2 col-lg-3 col-6 product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>       
+                                        <div class="py-3 col-md-4 col-xl-2 col-lg-3 col-6 product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="py-3 col-md-4 col-xl-2 col-lg-3 col-6 product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                         <div class="py-3 col-xl-2 d-none d-xl-block product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="py-3 col-xl-2 d-none d-xl-block product-item">
+                                            <div class="product-item-w border-right">
+                                                <h5><a class="text-product" href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
+                                                <div class="wrapper-img text-center">
+                                                    <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-220x200.png" alt="">
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="d-inline-block textfs-price">50.000 ₫</h5>
+                                                    <button title="Thêm vào giỏ hàng" class="rounded-circle btn-cart d-md-none d-lg-block ">
+                                                        <img src="/images/shopping-cart-20.png" alt="">
+                                                    </button>
+                                                </div>
+
+                                                <div class="mt-3 pt-2 border-top text-center textfs-time-discount">
+                                                    <span>00</span> Ngày : <span>00</span> Giờ : <span>00</span> Phút
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="tab-pane container fade" id="menu1">...</div>
+                                <div class="tab-pane container fade" id="menu2">...</div>
                             </div>
                         </div>
                     </div>
@@ -189,6 +631,10 @@ export default {
                     768: {
                         width: 768,
                     },
+
+                    992: {
+                        width: 300,
+                    },
                 }
 
             }
@@ -216,32 +662,8 @@ export default {
     transform: translateX(0px) !important;
 }
 
-@media screen and (max-width: 768px) {
-    .wrapper-onsale-item {
-        max-width: 768px !important;
-    }
-
-}
-
-@media screen and (max-width: 576px) {
-    .wrapper-onsale-item img {
-        max-width: 100% !important;
-    }
-
-    .text-fs {
-        font-size: 1.2rem !important;
-    }
-
-    .text-on-sale {
-        width: 200px !important;
-
-        a {
-            font-size: 0.9rem !important;
-            ;
-        }
-
-    }
-
+.textfs-time-discount {
+    font-size: 0.9rem !important;
 }
 
 .wrapper-onsale {
@@ -309,6 +731,140 @@ export default {
                 color: #6200ea;
             }
         }
+    }
+}
+
+.textfs-price {
+    font-size: 1.1rem !important;
+}
+
+.textfs-discount {
+    font-size: 1.2rem !important;
+}
+
+// product
+
+.product-item-w {
+    margin-right: -15px;
+    padding: 0px 15px;
+}
+
+#laptop  .product-item-w:last-child {
+    border-right: none !important;
+}
+
+#dienthoai .product-item-w:last-child {
+    border-right: none !important;
+}
+.product-item:hover {
+    box-shadow: 1px 1px 5px 3px rgb(228, 226, 226);
+
+}
+
+.product-item:hover .product-item-w {
+    border-right: none !important;
+
+}
+
+.product-item {
+    h5 {
+        line-height: 1;
+    }
+
+    .text-product {
+        color: #3949ab !important;
+        font-size: 0.9rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .btn-cart:hover {
+        transform: translateY(-5px);
+        box-shadow: 1px 1px 5px 2px rgb(238, 218, 129);
+    }
+
+    .btn-cart {
+        border: none;
+        background-color: #FED700;
+        height: 2.2rem;
+        transition: all 0.5s;
+        width: 2.2rem;
+    }
+}
+
+#tab-categories {
+    .nav-link.active {
+        font-weight: bold !important;
+        border-bottom: 2px solid #FED700;
+        background-color: #f9f9f9 !important;
+    }
+
+    .tab-content {
+        .active {
+            background-color: white !important;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .wrapper-onsale-item img {
+        max-width: 100% !important;
+    }
+
+    .text-fs {
+        font-size: 1.2rem !important;
+    }
+
+    .text-on-sale {
+        width: 200px !important;
+
+        a {
+            font-size: 0.9rem !important;
+            ;
+        }
+
+    }
+
+    #tab-categories{
+        margin: 0px !important;
+    }
+
+    .product-item-w {
+        padding-left: 0px !important;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper-onsale-item {
+        max-width: 768px !important;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+    .wrapper-onsale-item {
+        max-width: 300px;
+    }
+
+    .textfs-price {
+        font-size: 0.9rem !important;
+    }
+
+    .textfs-discount {
+        font-size: 1.1rem !important;
+    }
+
+    .textfs-time-discount {
+        font-size: 0.8rem !important;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .product-item-w {
+        padding-left: 0px !important;
     }
 }
 </style>

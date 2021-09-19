@@ -382,7 +382,7 @@ export default {
 }
  
 </script>
-<style>
+<style scoped>
 .bg-form {
     background-color: #f1f8e9 !important;
 }

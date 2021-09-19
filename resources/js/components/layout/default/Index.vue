@@ -41,15 +41,13 @@ a:hover {
     color: #334141 !important;
     text-decoration: none !important;
 }
-
  
 
-// @media screen and (max-width: 576px) {
-//     .header-bottom {
-//         .container {
-//             padding: 0px !important;
-//         }
-//     }
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0px !important;
+    }
+  
 
-// }
+}
 </style>
