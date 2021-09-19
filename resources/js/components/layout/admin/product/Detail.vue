@@ -10,11 +10,7 @@
                     </button>
                 </div>
                 <div class="modal-body" v-if="subPicture.length > 0">
-<<<<<<< HEAD
                     <div class="mt-5 clearfix">
-=======
-                    <div class="mt-5">
->>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
                         <splide :options="primaryOptions" ref="primary" id="primary" class="float-right">
                             <splide-slide v-for="picture in subPicture" :key="path + picture.picture">
                                 <img :src="path + picture.picture" class="picture-primary">
@@ -36,7 +32,6 @@
                             </splide-slide>
                         </splide>
                     </div>
-<<<<<<< HEAD
                     <div>
                         <table class="table mt-5 table-striped">
                             <tr class="mt-5 bg-first">
@@ -133,8 +128,6 @@
 
                         </table>
                     </div>
-=======
->>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
@@ -151,30 +144,19 @@ import {
     Splide,
     SplideSlide
 } from '@splidejs/vue-splide';
-<<<<<<< HEAD
 import RepositoryFactory from '../../../repositoryfactory/RepositoryFactory.js';
 const ProductRepository = RepositoryFactory.get('product');
 import moment from 'moment';
 
 import {mapActions} from 'vuex';
-=======
-// import '@splidejs/splide/dist/css/themes/splide-default.min.css';
- 
->>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
 export default {
     name: 'DetailItem',
     props: {
         product: Object,
-<<<<<<< HEAD
         subPicture: [],
         categoriesAll: []  
     },
 
-=======
-        subPicture: []
-    },
-     
->>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
     components: {
         Splide,
         SplideSlide,
@@ -202,7 +184,6 @@ export default {
                 direction: 'ttb',
                 pagination: false,
                 isNavigation: true,
-<<<<<<< HEAD
 
             },
             idsIntervar: [],
@@ -289,16 +270,6 @@ export default {
     updated() {
         if (this.subPicture.length > 0)
             this.$refs.primary.sync(this.$refs.secondary.splide);
-=======
-                 
-            } 
-
-        }
-    }, 
-    updated() {    
-  
-        this.$refs.primary.sync(this.$refs.secondary.splide);
->>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
     }
 }
 </script>
@@ -311,19 +282,14 @@ export default {
     border-radius: 5px;
     width: 550px !important;
 }
-<<<<<<< HEAD
 
 .splide__arrow--prev {
-=======
-.splide__arrow--prev{
->>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
     position: absolute;
     top: -57px;
     left: 40%;
     background-color: #f1f8e9;
 }
 
-<<<<<<< HEAD
 .splide__arrow--next {
     position: absolute;
     bottom: -57px;
@@ -348,16 +314,4 @@ export default {
     text-align-last: center;
 }
 
-=======
-.splide__arrow--next{
-    position: absolute;
-    bottom: -57px;
-     background-color: #f1f8e9;
-    left: 40%;
-}
-#second .splide__list .is-active{
-    border: 4px solid#f1f8e9;
-    border-radius: 5px;
-}
->>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
 </style>

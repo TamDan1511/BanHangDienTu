@@ -42,11 +42,7 @@
 <script>
 import RepositoryFactory from '../../../repositoryfactory/RepositoryFactory.js';
 const UserRepository = RepositoryFactory.get('user');
-<<<<<<< HEAD
  
-=======
-
->>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
 export default {
     name: 'Login',
     metaInfo: {
@@ -63,7 +59,6 @@ export default {
             showPass: false
         }
     },
-<<<<<<< HEAD
     beforeCreate(){
         this.$loading.hide()
         let token =  window.localStorage.getItem('token');
@@ -72,12 +67,6 @@ export default {
         }
     },
      
-=======
-    mounted(){
-        let token = window.localStorage.getItem('token');
-        if(token != null) this.$router.push({name: 'IndexAdmin'});
-    },
->>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
     methods: {
         login: async function() {
             this.loading = true;

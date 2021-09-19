@@ -63,7 +63,23 @@ class ProductRepository{
 	public function destroy($id)
 	{
 		$product = Product::find($id);
-		$product->images()->delete();
+		$arrPicture = explode('.', $product->picture);
+		$str500x500 = public_path('upload/product/' . $arrPicture[0] . '-500x500.' . $arrPicture[1]);
+
+		unlink($str500x500);
+		unlink(public_path('upload/product/' . $arrPicture[0] . '-220x200.' . $arrPicture[1]));
+		unlink(public_path('upload/product/' . $product->picture));
+		$listImage = $product->images();
+		if(!empty($listImage)){
+			$listImage->delete();
+			foreach($listImage as $value){
+				$arrPicture = explode('.', $value->picture);
+				unlink(public_path('upload/product/' . $arrPicture[0] . '-500x500.' . $arrPicture[1]));
+				unlink(public_path('upload/product/' . $arrPicture[0] . '-220x200.' . $arrPicture[1]));
+				unlink(public_path('upload/product/' . $product->picture));
+			}
+		}
+		 
 		return $product->delete();
 		
 	}

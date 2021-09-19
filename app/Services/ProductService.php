@@ -34,11 +34,11 @@ class ProductService{
 		$strPicture500x500 = $strPicture . '-500x500' . '.' . $ext;
 		$img->save(public_path('upload/product/' .$strPicture500x500));
 
-		$strPicture200x150 = $strPicture . '-200x150' . '.' . $ext;
-		$img->resize(200, 150, function ($constraint) {
+		$strPicture220x200 = $strPicture . '-220x200' . '.' . $ext;
+		$img->resize(220, 200, function ($constraint) {
 			$constraint->upsize();
 		});
-		$img->save(public_path('upload/product/' .$strPicture200x150));
+		$img->save(public_path('upload/product/' .$strPicture220x200));
 
 
 		$validated['user_id'] = auth('api')->user()->id;
@@ -52,7 +52,7 @@ class ProductService{
 				$str = Str::random(40);
 				$strItem = $str . '.' . $strExt;
 				$strItem500x500 = $str . '-500x500.' . $strExt;
-				$strItem200x150 = $str . '-200x150.' . $strExt;
+				$strItem220x200 = $str . '-220x200.' . $strExt;
 				$item->save(public_path('upload/product/' . $strItem));
 
 				$item->resize(500, 500, function ($constraint) {
@@ -60,10 +60,10 @@ class ProductService{
 				});
 				$item->save(public_path('upload/product/' . $strItem500x500));
 	
-				$item->resize(200, 150, function ($constraint) {
+				$item->resize(220, 200, function ($constraint) {
 					$constraint->upsize();
 				});
-				$item->save(public_path('upload/product/' . $strItem200x150));
+				$item->save(public_path('upload/product/' . $strItem220x200));
 	
 				DB::table('images')->insert([
 					'picture' => $strItem,
@@ -85,9 +85,9 @@ class ProductService{
 			foreach($sub_imagesOld as $image){
 				$str = explode('.', $image->picture);
 				$str500x500 = public_path('upload/product/' . $str[0] . '-500x500.' . $str[1]);
-				$str200x150 = public_path('upload/product/' . $str[0] . '-200x150.' . $str[1]);
+				$str220x200 = public_path('upload/product/' . $str[0] . '-220x200.' . $str[1]);
 				unlink($str500x500);
-				unlink($str200x150);
+				unlink($str220x200);
 				unlink(public_path('upload/product/' . $image->picture));
 			}
 
@@ -103,9 +103,9 @@ class ProductService{
 		}else{
 			$arrPicture = explode('.', $product->picture);
 			$str500x500 = public_path('upload/product/' . $arrPicture[0] . '-500x500.' . $arrPicture[1]);
-			$str200x150 = public_path('upload/product/' . $arrPicture[0] . '-200x150.' . $arrPicture[1]);
+			$str220x200 = public_path('upload/product/' . $arrPicture[0] . '-220x200.' . $arrPicture[1]);
 			unlink($str500x500);
-			unlink($str200x150);
+			unlink($str220x200);
 
 			unlink(public_path('upload/product/' . $product->picture));
 			$picture = $validated['picture'];
@@ -122,11 +122,11 @@ class ProductService{
 			$strPicture500x500 = $strPicture . '-500x500' . '.' . $ext;
 			$img->save(public_path('upload/product/' .$strPicture500x500));
 
-			$strPicture200x150 = $strPicture . '-200x150' . '.' . $ext;
-			$img->resize(200, 150, function ($constraint) {
+			$strPicture220x200 = $strPicture . '-220x200' . '.' . $ext;
+			$img->resize(220, 200, function ($constraint) {
 				$constraint->upsize();
 			});
-			$img->save(public_path('upload/product/' .$strPicture200x150));
+			$img->save(public_path('upload/product/' .$strPicture220x200));
 	 
 		}
 		 
@@ -139,17 +139,17 @@ class ProductService{
 				$str = Str::random(40);
 				$strItem = $str . '.' . $strExt;
 				$strItem500x500 = $str . '-500x500.' . $strExt;
-				$strItem200x150 = $str . '-200x150.' . $strExt;
+				$strItem220x200 = $str . '-220x200.' . $strExt;
 				$item->save(public_path('upload/product/' . $strItem));
 				$item->resize(500, 500, function ($constraint) {
 					$constraint->upsize();
 				});
 				$item->save(public_path('upload/product/' . $strItem500x500));
 	
-				$item->resize(200, 150, function ($constraint) {
+				$item->resize(220, 200, function ($constraint) {
 					$constraint->upsize();
 				});
-				$item->save(public_path('upload/product/' . $strItem200x150));
+				$item->save(public_path('upload/product/' . $strItem220x200));
 				 
 				DB::table('images')->insert([
 					'picture' => $strItem,
@@ -184,7 +184,6 @@ class ProductService{
 		return response()->json(['update' => $update > 0]);
 	}
 
-<<<<<<< HEAD
 	public function updateCategory($request)
 	{
 	 
@@ -196,20 +195,14 @@ class ProductService{
   
 	public function destroy($id)
     {
-		try {
+		// try {
 			$affected = $this->productRepository->destroy($id);
 
-		} catch (\Throwable $th) {
-			return response()->json(['error' => 400]);
-		}
+		// } catch (\Throwable $th) {
+		// 	return response()->json(['error' => 400]);
+		// }
 
 		return $affected;
-=======
-  
-	public function destroy($id)
-    {
-         
->>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
     }
 }
 	

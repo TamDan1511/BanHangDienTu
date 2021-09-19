@@ -47,11 +47,7 @@
 			logout: function(){
 				let authorization = window.localStorage.getItem('token');
         		let config = { headers: { "Authorization": `Bearer ${authorization}` } };
-<<<<<<< HEAD
 				UserRepository.logout(this, config);
-=======
-				UserRepository.logout(this,config);
->>>>>>> f54b535ab842f3ea4ea9407da0eb228aeb7012b3
 			},
 
             ...mapActions('checkLogin', [
