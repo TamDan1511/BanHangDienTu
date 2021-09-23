@@ -1,9 +1,10 @@
 <template>
 <div class="container-fluid bg-white">
     
-    <header-item />
+    <header-item></header-item>
     <slot name="slider"></slot>
     <slot name="main"></slot>
+    <footer-item></footer-item>
 </div>
 </template>
 

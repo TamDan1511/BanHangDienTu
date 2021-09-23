@@ -1,5 +1,5 @@
 <template>
-<div class="header-bottom">
+<div class="wrapper-header-bottom-sm">
     <div class="py-2 border-bottom d-md-block d-none">
         <div class="container">
             <!-- header top -->
@@ -54,7 +54,7 @@
     </div>
 
     <div class="container position-relative">
-        <div class="row py-xl-4 py-2">
+        <div class="row py-xl-4 py-2 header-bottom">
             <div class="col-sm-2 col-auto">
                 <a class="logo">
                     <img src="/images/logo.svg" alt="">
@@ -741,10 +741,21 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
-
-    .header-bottom {
-        margin: 0 -15px;
+    .wrapper-header-bottom-sm {
+        margin: 0px -15px !important;
         background-color: #FED700 !important;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    .header-bottom {
+        background-color: #FED700 !important;
+    }
+
+    .wrapper-header-bottom-sm {
+        margin: 0px !important;
+        background-color: none !important;
     }
 
 }

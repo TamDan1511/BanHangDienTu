@@ -69,6 +69,7 @@ export default {
 <style lang="scss">
 #wrapper-slider {
     margin: 0 -15px;
+    padding: 0 15px !important;
     max-height: 420px;
     background-image: url('/images/bgslider.jpg');
 

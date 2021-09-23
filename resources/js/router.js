@@ -40,6 +40,11 @@ Vue.use(VueMeta);
 // default
 // index
 import IndexDefault from './components/layout/default/index/Index.vue';
+
+// listproduct
+import IndexListProduct from './components/layout/default/listproduct/Index.vue';
+
+import ProductDetail from './components/layout/default/productdetail/Index.vue';
 const routes = [
     {
         path: '/admin/dang-nhap',
@@ -139,6 +144,16 @@ const routes = [
         path: '/',
         name: 'IndexDefault',
         component: IndexDefault
+    },
+    // {
+    //     path: '/:category(.+\/abc)',
+    //     name: 'IndexListProduct',
+    //     component: IndexListProduct
+    // },
+    {
+        path: '/:product(.+\/\(abc\))',
+        name: 'ProductDetail',
+        component: ProductDetail
     },
     {
         path: '/*',
