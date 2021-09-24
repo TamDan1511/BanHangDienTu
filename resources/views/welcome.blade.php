@@ -13,8 +13,8 @@
         <div id="app" class="vh-100">
             
         </div>
-        <script src="{{ asset('js/ckfinder/ckfinder.js') }}"></script>
-        <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>    
+        <script src="{{ asset('libs/ckfinder/ckfinder.js') }}"></script>
+        <script src="{{ asset('libs/ckeditor/ckeditor.js') }}"></script>    
         <script src="{{ mix('js/app.js')}}"></script>
     </body>
 </html>

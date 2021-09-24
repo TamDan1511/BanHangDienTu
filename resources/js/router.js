@@ -29,6 +29,10 @@ import BannerItem from './components/layout/admin/banner/Index.vue';
 import BannerStore from './components/layout/admin/banner/Store.vue';
 import BannerEdit from './components/layout/admin/banner/Update.vue';
 
+// slider
+import SliderItem from './components/layout/admin/slider/Index.vue';
+import SliderStore from './components/layout/admin/slider/Store.vue';
+import SliderEdit from './components/layout/admin/slider/Update.vue';
 
 // error
 import NotFound from './components/layout/admin/error/Html404.vue';
@@ -124,7 +128,6 @@ const routes = [
         name: 'MenuEdit',
         component: MenuEdit
     },
-    ,
     {
         path: '/admin/banner',
         name: 'BannerItem',
@@ -141,17 +144,32 @@ const routes = [
         component: BannerEdit
     },
     {
+        path: '/admin/slider',
+        name: 'SliderItem',
+        component: SliderItem
+    },
+    {
+        path: '/admin/slider/add-slider',
+        name: 'SliderStore',
+        component: SliderStore
+    },
+    {
+        path: '/admin/slider/edit-slider',
+        name: 'SliderEdit',
+        component: SliderEdit
+    },
+    {
         path: '/',
         name: 'IndexDefault',
         component: IndexDefault
     },
-    // {
-    //     path: '/:category(.+\/abc)',
-    //     name: 'IndexListProduct',
-    //     component: IndexListProduct
-    // },
     {
-        path: '/:product(.+\/\(abc\))',
+        path: '/:category([0-9a-z-\/]+-[0-9]+)',
+        name: 'IndexListProduct',
+        component: IndexListProduct
+    },
+    {
+        path: '/:product([0-9a-z-\/]+_[0-9]+-[0-9]+)',
         name: 'ProductDetail',
         component: ProductDetail
     },

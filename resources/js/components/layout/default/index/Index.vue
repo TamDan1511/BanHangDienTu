@@ -34,7 +34,7 @@
                                             <span class="font-weight-bold" style="line-height: 65px">On sale</span>
                                         </div>
                                         <div class="img-on-sale text-center pt-5">
-                                            <img src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-500x500.png" alt="">
+                                            <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-500x500.png" alt="">
                                         </div>
                                         <div class="text-center mt-3 text-on-sale">
                                             <h5><a href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
@@ -89,7 +89,7 @@
                                             <span class="font-weight-bold" style="line-height: 65px">On sale</span>
                                         </div>
                                         <div class="img-on-sale text-center pt-5">
-                                            <img src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-500x500.png" alt="">
+                                            <img class="img-fluid" src="\upload\product\jiKsnk8HZGuPF567w74tXSK7PkrE0yoAcAxGA44k-500x500.png" alt="">
                                         </div>
                                         <div class="text-center mt-3 text-on-sale">
                                             <h5><a href="">Game Console Controller + USB 3.0 Cable Game Console Controller + USB 3.0 Cable</a></h5>
@@ -627,11 +627,9 @@ export default {
     border-radius: 30px;
 
     .wrapper-onsale-item {
-        max-width: 340px;
-
         .img-on-sale {
             img {
-                max-width: 320px;
+                // max-width: 320px;
                 min-height: 300px;
             }
         }

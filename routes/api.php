@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\Admin\ProductController;
 use App\Http\Controllers\Api\Admin\MenuController;
 use App\Http\Controllers\Api\Admin\BannerController;
+use App\Http\Controllers\Api\Admin\SliderController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -53,6 +54,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:api'], function(){
     Route::apiResource('/banner', BannerController::class);
 
     Route::post('/banner/changeActive', [BannerController::class, 'changeActive']);
+
+     // banner
+     Route::apiResource('/slider', SliderController::class);
+
+     Route::post('/slider/changeActive', [SliderController::class, 'changeActive']);
   
 });
 // Route::middleware('auth:api')->get('/user', function (Request $request) {

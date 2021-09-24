@@ -215,7 +215,7 @@
                                     </div>
 
                                     <div class="col">
-                                        <span>Ultra Wireless S50 Headphones S50 with Bluetooth</span> <br>
+                                        <span class="text-product-cart">Ultra Wireless S50 Headphones S50 with Bluetooth</span>
                                         <span>1 × $1,100.00</span>
                                     </div>
                                     <div class="col-auto">
@@ -588,7 +588,12 @@ export default {
     border-bottom-right-radius: 25px;
 
 }
-
+.text-product-cart{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 .count-p-cart {
     left: 10px;
     background-color: #FED700;

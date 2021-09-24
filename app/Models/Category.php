@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 use DateTimeInterface;
 
 class Category extends Model
@@ -18,5 +19,10 @@ class Category extends Model
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 }

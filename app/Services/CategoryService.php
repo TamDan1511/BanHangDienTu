@@ -48,10 +48,11 @@ class CategoryService{
 		if(empty($validated['icon'])) unset($validated['icon']);
 		else{
 			$objOld = DB::table('categories')->where('id', $id)->first();
-			unlink(public_path('upload/category/' . $objOld->icon));
+			if(!empty($objOld->icon))
+				unlink(public_path('upload/category/' . $objOld->icon));
 			$extension = $validated['icon']->extension();
 			$str = Str::random(40) . '.' . $extension;
-			$path = $validated['icon']->move('upload/category', $str);
+			$path = $validated['icon']->move('upload/category', $str); // directory public
 			$validated['icon'] = $str;
 		}
 		$checkExists = DB::table('categories')->where('parent_id', $parent_id)->where('id', $id)->exists();
@@ -102,8 +103,31 @@ class CategoryService{
 	public function destroy($id)
     {
 		try {
-			$objOld = DB::table('categories')->where('id', $id)->first();
-			unlink(public_path('upload/category/' . $objOld->icon));
+			$objOld = \App\Models\Category::where('id', $id)->first();
+			
+			if(!empty($objOld->icon))
+				unlink(public_path('upload/category/' . $objOld->icon));
+			$products = $objOld->products;
+			foreach($products as $value){
+				$listImage = $value->getPicture;
+				$arrPicture = explode('.', $value->picture);
+				$str500x500 = public_path('upload/product/' . $arrPicture[0] . '-500x500.' . $arrPicture[1]);
+
+				unlink($str500x500);
+				unlink(public_path('upload/product/' . $arrPicture[0] . '-220x200.' . $arrPicture[1]));
+				unlink(public_path('upload/product/' . $value->picture));
+				if(!empty($listImage)){
+					$value->getPicture()->delete();
+					foreach($listImage as $value2){
+						$arrPicture = explode('.', $value2->picture);
+						unlink(public_path('upload/product/' . $arrPicture[0] . '-500x500.' . $arrPicture[1]));
+						unlink(public_path('upload/product/' . $arrPicture[0] . '-220x200.' . $arrPicture[1]));
+						unlink(public_path('upload/product/' . $value2->picture));
+					}
+				}
+			}
+			$objOld->products()->delete(); 
+			 
 			$affected = $this->nestedModel->removeNode($id);
 		} catch (\Throwable $th) {
 			return response()->json(['error' => 400]);

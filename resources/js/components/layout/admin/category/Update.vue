@@ -46,14 +46,14 @@
                             <label for="name" class="col-sm-3 col-form-label font-weight-bold">Icon:</label>
                             <div class="col-sm-9">
                                 <div class="custom-file">
-                                    <input type="file" :class="{'is-invalid': errors.icon, 'is-valid': category.icon}" class="custom-file-input" id="customFile" @change="setPicture">
+                                    <input accept=".png, .jpg, .jpeg, .GIF, .WebP" type="file" :class="{'is-invalid': errors.icon, 'is-valid': category.icon}" class="custom-file-input" id="customFile" @change="setPicture">
                                     <label class="custom-file-label" for="customFile">Chọn icon</label>
                                     <div v-if="errors.icon" class="invalid-feedback">
                                         {{errors.icon[0]}}
                                     </div>
                                 </div>
                                 <div v-if="category.icon != null" class="my-2">
-                                    <img :src="setPicturePath(category.icon)" />
+                                    <img class="img-thumbnail" style="width: 100px; height: 130px; object-fit: fill" :src="setPicturePath(category.icon)" />
                                 </div>
                             </div>
 

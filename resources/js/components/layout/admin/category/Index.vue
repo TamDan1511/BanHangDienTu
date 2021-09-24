@@ -75,7 +75,7 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <img v-if="category.icon != null" :src="'/upload/category/' + category.icon" alt="">
+                                    <img style="max-width: 100px; max-height: 120px;" v-if="category.icon != null" :src="'/upload/category/' + category.icon" alt="">
                                 </td>
                                 <td>
                                     <button v-if="category.status == 1" @click="changeActive(category)" class="btn btn-success btn-sm">

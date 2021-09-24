@@ -46,7 +46,7 @@
                             <label for="name" class="col-sm-3 col-form-label font-weight-bold">Icon:</label>
                             <div class="col-sm-9">
                                 <div class="custom-file">
-                                    <input type="file" :class="{'is-invalid': errors.icon, 'is-valid': category.icon}" class="custom-file-input" id="customFile" @change="setPicture">
+                                    <input accept=".png, .jpg, .jpeg, .GIF, .WebP" type="file" :class="{'is-invalid': errors.icon, 'is-valid': category.icon}" class="custom-file-input" id="customFile" @change="setPicture">
                                     <label class="custom-file-label" for="customFile">Chọn icon</label>
                                     <div v-if="errors.icon" class="invalid-feedback">
                                         {{errors.icon[0]}}
@@ -151,6 +151,7 @@ export default {
                     this.setActive(true);
                     setTimeout(() => { this.setActive(false)}, 3000);
                     this.category = this.resetCategory();
+                    $('.custom-file-label').text('Chọn icon');
                     let data = await CategoryRepository.getCategoryAll();
                     this.categoriesAll = data.categoriesAll;
                     this.category.parent_id = this.categoriesAll[0].id 
@@ -162,7 +163,8 @@ export default {
             return {
                     name: '',
                     status: 1,
-                    parent_id: 0
+                    parent_id: 0,
+                    icon: ''
                 };
         },
         back() {

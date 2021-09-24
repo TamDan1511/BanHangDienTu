@@ -111,7 +111,7 @@
                             <label for="status" class="col-sm-3 col-form-label font-weight-bold">Hình ảnh chính:</label>
                             <div class="col-sm-9">
                                 <div class="custom-file">
-                                    <input type="file" :class="{'is-invalid': errors.picture, 'is-valid': product.picture}" class="custom-file-input" id="customFile" @change="setPicture">
+                                    <input type="file" accept=".png, .jpg, .jpeg, .GIF, .WebP" :class="{'is-invalid': errors.picture, 'is-valid': product.picture}" class="custom-file-input" id="customFile" @change="setPicture">
                                     <label class="custom-file-label" for="customFile">Chọn hình ảnh</label>
                                     <div v-if="errors.picture" class="invalid-feedback">
                                         {{errors.picture[0]}}
@@ -382,12 +382,12 @@ export default {
 }
  
 </script>
-<style scoped>
+<style>
 .bg-form {
     background-color: #f1f8e9 !important;
 }
 
-.row{
+.bg-form .row{
     flex-wrap: nowrap !important;
 }
 
@@ -426,10 +426,10 @@ export default {
     color: red;
      
 }
-#list-picture li img{
-    width: 100px;
-    height: 120px;
-    object-fit: fill;
+#list-picture li .item-picture{
+    width: 100px !important;
+    height: 120px !important;
+    object-fit: fill !important;
 }
 
 </style>

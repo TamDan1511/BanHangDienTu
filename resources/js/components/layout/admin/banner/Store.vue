@@ -68,7 +68,7 @@
                             <label for="name" class="col-sm-3 col-form-label font-weight-bold">Hình ảnh:</label>
                             <div class="col-sm-9">
                                 <div class="custom-file">
-                                    <input type="file" :class="{'is-invalid': errors.picture, 'is-valid': banner.picture}" class="custom-file-input" id="customFile" @change="setPicture">
+                                    <input type="file" accept=".png, .jpg, .jpeg, .GIF, .WebP" :class="{'is-invalid': errors.picture, 'is-valid': banner.picture}" class="custom-file-input" id="customFile" @change="setPicture">
                                     <label class="custom-file-label" for="customFile">Chọn hình ảnh</label>
                                     <div v-if="errors.picture" class="invalid-feedback">
                                         {{errors.picture[0]}}
