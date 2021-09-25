@@ -289,6 +289,7 @@
                             <ul class="nav flex-column">
                                 <li class="nav-item position-relative">
                                     <a href="#" role="button" class="nav-link border-bottom">
+                                        <img src="" alt="">
                                         <span>Computers</span>
                                         <i class="fa fa-chevron-right float-right pt-1 pl-2" style="font-size: 0.8rem;" aria-hidden="true"></i>
                                     </a>

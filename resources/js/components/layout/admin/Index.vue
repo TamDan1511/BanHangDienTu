@@ -2,7 +2,7 @@
         <div class="container-fluid mh-100 bg-white" >
           <message-item></message-item>
 
-          <div class="row h-100">
+          <div class="d-flex h-100" style="margin: 0px -15px">
               <div id="nav-left" class="min-vh-100">
                   <Nav />
               </div>

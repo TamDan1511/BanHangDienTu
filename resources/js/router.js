@@ -44,7 +44,10 @@ Vue.use(VueMeta);
 // default
 // index
 import IndexDefault from './components/layout/default/index/Index.vue';
-
+import CartItem from './components/layout/default/index/Cart.vue';
+import HistoryItem from './components/layout/default/index/History.vue';
+import LoginItem from './components/layout/default/index/Login.vue';
+import RegisterItem from './components/layout/default/index/Register.vue';
 // listproduct
 import IndexListProduct from './components/layout/default/listproduct/Index.vue';
 
@@ -172,6 +175,26 @@ const routes = [
         path: '/:product([0-9a-z-\/]+_[0-9]+-[0-9]+)',
         name: 'ProductDetail',
         component: ProductDetail
+    },
+    {
+        path: '/gio-hang',
+        name: 'CartItem',
+        component: CartItem
+    },
+    {
+        path: '/lich-su-dat-hang',
+        name: 'HistoryItem',
+        component: HistoryItem
+    },
+    {
+        path: '/dang-nhap',
+        name: 'LoginItem',
+        component: LoginItem
+    },
+    {
+        path: '/dang-ky',
+        name: 'RegisterItem',
+        component: RegisterItem
     },
     {
         path: '/*',
